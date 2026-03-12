@@ -1,0 +1,4347 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO & OpenGraph (WhatsApp / Facebook) ═══ -->
+<title>MauriCraft & Style — الموضة الموريتانية الأصيلة</title>
+<meta name="description" content="La première marketplace de mode mauritanienne. Melahfa, Darra, Bijoux artisanaux — paiement sécurisé via Bankily, Masrivi, Sadead. Livraison géolocalisée partout en Mauritanie.">
+<meta name="keywords" content="Melahfa, Darra, mode mauritanienne, Bazin, bijoux, Nouakchott, artisanat, تجارة إلكترونية موريتانيا">
+<meta name="author" content="MauriCraft & Style">
+<meta name="theme-color" content="#C9A84C">
+
+<!-- Open Graph — Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MauriCraft & Style">
+<meta property="og:title" content="MauriCraft & Style — الموضة الموريتانية الأصيلة">
+<meta property="og:description" content="Marketplace de mode mauritanienne. Melahfa, Darra, Tissus Bazin, Bijoux artisanaux. Paiement sécurisé, livraison géolocalisée. Rejoignez-nous !">
+<meta property="og:image" content="https://mauricraft.mr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MauriCraft & Style — Mode mauritanienne authentique">
+<meta property="og:url" content="https://mauricraft.mr">
+<meta property="og:locale" content="fr_MR">
+<meta property="og:locale:alternate" content="ar_MR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MauriCraft & Style — Marketplace mode mauritanienne">
+<meta name="twitter:description" content="Melahfa, Darra, Bazin, Bijoux — paiement sécurisé, livraison en Mauritanie.">
+<meta name="twitter:image" content="https://mauricraft.mr/og-image.jpg">
+
+<!-- WhatsApp spécifique -->
+<meta property="og:image:type" content="image/jpeg">
+<meta name="format-detection" content="telephone=yes">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dark: #8B6914;
+  --sand: #F5EDD6;
+  --sand-deep: #E8D5A8;
+  --terracotta: #C1440E;
+  --indigo: #1B2B4B;
+  --indigo-deep: #0D1929;
+  --white: #FDFAF4;
+  --text-dark: #1A1208;
+  --text-muted: #6B5E3E;
+  --border: rgba(201, 168, 76, 0.25);
+  --glass: rgba(253, 250, 244, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--indigo-deep);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--indigo-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 40px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13, 25, 41, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.logo-sub {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(253, 250, 244, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-arabic {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.5);
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-arabic:hover { color: var(--gold); border-color: var(--gold); }
+
+.btn-nav-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--indigo-deep);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+}
+
+.btn-nav-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 30px rgba(201, 168, 76, 0.5);
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  color: rgba(253, 250, 244, 0.7);
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.cart-icon:hover { color: var(--gold); }
+
+.cart-badge {
+  position: absolute;
+  top: -6px; right: -8px;
+  background: var(--terracotta);
+  color: white;
+  font-size: 10px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201, 168, 76, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(193, 68, 14, 0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #0D1929 0%, #1B2B4B 50%, #0D1929 100%);
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      var(--gold) 0px,
+      var(--gold) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--gold) 0px,
+      var(--gold) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 100px;
+  padding: 6px 16px 6px 8px;
+  margin-bottom: 28px;
+}
+
+.badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.badge-text {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-arabic {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 20px;
+  color: rgba(201, 168, 76, 0.6);
+  margin-bottom: 20px;
+  font-weight: 300;
+  direction: rtl;
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: rgba(253, 250, 244, 0.6);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), #A87B1C);
+  color: var(--indigo-deep);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.5);
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25D366;
+  padding: 15px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background: rgba(37, 211, 102, 0.2);
+  transform: translateY(-2px);
+}
+
+.whatsapp-icon { font-size: 22px; }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 52px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.stat-item {}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.45);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cards-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.product-card-float {
+  position: absolute;
+  background: rgba(27, 43, 75, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.6s ease;
+}
+
+.product-card-float:hover { transform: translateY(-8px) !important; }
+
+.card-main {
+  width: 260px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-secondary {
+  width: 200px;
+  top: 10%;
+  right: 0;
+  animation: float1 6s ease-in-out infinite;
+}
+
+.card-tertiary {
+  width: 180px;
+  bottom: 8%;
+  left: 0;
+  animation: float2 7s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, #2A3F6F 0%, #1B2B4B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(13, 25, 41, 0.9) 100%);
+}
+
+.card-img-sm { font-size: 40px; }
+
+.card-body {
+  padding: 16px;
+}
+
+.card-vendor {
+  font-size: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.card-name-sm { font-size: 13px; }
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.card-price-sm { font-size: 14px; }
+
+.card-rating {
+  font-size: 11px;
+  color: rgba(253, 250, 244, 0.5);
+}
+
+.card-badge-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--gold);
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+}
+
+.ai-suggest-bubble {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.9), rgba(139, 105, 20, 0.9));
+  border-radius: 16px 16px 16px 4px;
+  padding: 12px 16px;
+  max-width: 200px;
+  animation: float2 5s ease-in-out infinite;
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+}
+
+.ai-bubble-text {
+  font-size: 11px;
+  color: var(--indigo-deep);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ai-bubble-icon { font-size: 16px; margin-bottom: 4px; }
+
+/* ─── TRUST BAR ─── */
+.trust-bar {
+  background: rgba(201, 168, 76, 0.07);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.6);
+}
+
+.trust-icon { font-size: 20px; }
+
+/* ─── SECTION COMMONS ─── */
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-tag::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.section-title span { color: var(--gold); }
+
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: gap 0.2s;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.view-all:hover { gap: 12px; border-bottom-color: var(--gold); }
+
+/* ─── CATEGORIES ─── */
+.categories-section {
+  padding-top: 0;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.category-card {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+  aspect-ratio: 3/4;
+  background: rgba(27, 43, 75, 0.6);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.category-card:hover { transform: translateY(-6px); }
+
+.cat-emoji {
+  font-size: 52px;
+  margin-bottom: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+.cat-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+}
+
+.cat-bg-melahfa { background: linear-gradient(160deg, #8B0000, #C9A84C); }
+.cat-bg-tissu { background: linear-gradient(160deg, #1B4B8B, #C9A84C); }
+.cat-bg-bijoux { background: linear-gradient(160deg, #C9A84C, #8B6914); }
+.cat-bg-darra { background: linear-gradient(160deg, #2D5A27, #C9A84C); }
+.cat-bg-ceremonie { background: linear-gradient(160deg, #4B1B8B, #C9A84C); }
+
+.cat-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  position: relative;
+  text-align: center;
+}
+
+.cat-sublabel {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  position: relative;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.cat-count {
+  font-size: 11px;
+  color: rgba(253, 250, 244, 0.4);
+  position: relative;
+  margin-top: 4px;
+}
+
+/* ─── FEATURED PRODUCTS ─── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background: rgba(27, 43, 75, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 168, 76, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 168, 76, 0.1);
+}
+
+.product-img {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, rgba(27, 43, 75, 1) 0%, rgba(13, 25, 41, 1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, rgba(13, 25, 41, 0.95));
+}
+
+.product-actions {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s;
+}
+
+.product-card:hover .product-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(13, 25, 41, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.action-btn:hover { background: var(--gold); border-color: var(--gold); }
+
+.product-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-new { background: var(--gold); color: var(--indigo-deep); }
+.badge-local { background: rgba(193, 68, 14, 0.9); color: white; }
+.badge-ai { background: rgba(27, 43, 75, 0.95); border: 1px solid var(--border); color: var(--gold); }
+.badge-promo { background: rgba(193, 68, 14, 0.9); color: white; }
+
+.product-info {
+  padding: 18px;
+}
+
+.product-vendor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.vendor-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.vendor-name {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vendor-verified { font-size: 11px; }
+
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.product-desc {
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.45);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-current {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.price-old {
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.35);
+  text-decoration: line-through;
+  margin-top: 2px;
+}
+
+.price-currency {
+  font-size: 12px;
+  color: rgba(201, 168, 76, 0.7);
+}
+
+.add-cart-btn {
+  background: var(--gold);
+  color: var(--indigo-deep);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.add-cart-btn:hover {
+  background: var(--gold-light);
+  transform: scale(1.05);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.5);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.stars { color: var(--gold); font-size: 11px; }
+
+/* ─── AI FEATURE SECTION ─── */
+.ai-section {
+  background: rgba(27, 43, 75, 0.3);
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ai-visual {
+  position: relative;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-phone-mock {
+  width: 240px;
+  height: 480px;
+  background: rgba(13, 25, 41, 0.95);
+  border: 2px solid rgba(201, 168, 76, 0.4);
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.1);
+}
+
+.phone-notch {
+  width: 80px;
+  height: 6px;
+  background: rgba(201, 168, 76, 0.3);
+  border-radius: 3px;
+  margin: 14px auto;
+}
+
+.phone-content {
+  padding: 12px;
+}
+
+.phone-header {
+  font-size: 11px;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.phone-avatar-area {
+  background: rgba(27, 43, 75, 0.8);
+  border-radius: 16px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-scanning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(160px); opacity: 0.3; }
+}
+
+.phone-result {
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.phone-result-title {
+  font-size: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.phone-suggestion {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sug-thumb {
+  width: 36px;
+  height: 36px;
+  background: rgba(27, 43, 75, 0.8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.sug-info {}
+.sug-name { font-size: 10px; color: var(--white); font-weight: 600; }
+.sug-price { font-size: 10px; color: var(--gold); }
+.sug-match { font-size: 9px; color: rgba(253, 250, 244, 0.4); }
+
+.wap-bubble {
+  position: absolute;
+  right: -60px;
+  top: 30%;
+  background: #25D366;
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 14px;
+  max-width: 160px;
+  animation: float1 4s ease-in-out infinite;
+}
+
+.wap-text {
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.wap-icon { font-size: 14px; margin-bottom: 3px; }
+
+.ai-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.ai-feature {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.ai-feature-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.ai-feature-text {}
+
+.ai-feature-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.ai-feature-desc {
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.55);
+  line-height: 1.6;
+}
+
+/* ─── PAYMENT SECTION ─── */
+.payment-section {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.payment-card {
+  background: rgba(27, 43, 75, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-card:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+  transform: translateY(-4px);
+}
+
+.payment-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.payment-card:hover::before { opacity: 1; }
+
+.payment-logo {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.payment-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.payment-desc {
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.5);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.payment-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: var(--gold);
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Escrow Feature */
+.escrow-feature {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(27, 43, 75, 0.8), rgba(13, 25, 41, 0.9));
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.escrow-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.escrow-step {
+  text-align: center;
+}
+
+.escrow-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 8px;
+}
+
+.escrow-label {
+  font-size: 11px;
+  color: rgba(253, 250, 244, 0.5);
+  text-align: center;
+  max-width: 80px;
+}
+
+.escrow-arrow {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+.escrow-text {}
+
+.escrow-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.escrow-desc {
+  font-size: 14px;
+  color: rgba(253, 250, 244, 0.55);
+  line-height: 1.6;
+}
+
+/* ─── VENDORS ─── */
+.vendors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.vendor-card {
+  background: rgba(27, 43, 75, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.vendor-card:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+  transform: translateY(-4px);
+}
+
+.vendor-avatar-lg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 14px;
+  border: 3px solid rgba(201, 168, 76, 0.3);
+}
+
+.vendor-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.vendor-card-type {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.vendor-card-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.v-stat {}
+.v-stat-num { font-size: 16px; font-weight: 700; color: var(--white); }
+.v-stat-label { font-size: 10px; color: rgba(253, 250, 244, 0.4); text-transform: uppercase; }
+
+.vendor-verified-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--gold);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* ─── OCCASION SECTION ─── */
+.occasion-section {
+  background: rgba(27, 43, 75, 0.2);
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.occasion-section::after {
+  content: 'الأعياد والمناسبات';
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 60px;
+  color: rgba(201, 168, 76, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.occasions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.occasion-card {
+  border-radius: 20px;
+  padding: 40px 32px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.occasion-card:hover { transform: translateY(-6px); }
+
+.oc-ramadan { background: linear-gradient(160deg, #1B2B4B, #2A1B4B); }
+.oc-mariage { background: linear-gradient(160deg, #1B2B4B, #4B1B2B); }
+.oc-luxe { background: linear-gradient(160deg, #2B1B0D, #4B3B0D); }
+
+.occasion-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+}
+
+.oc-ramadan::before { background: radial-gradient(circle at 80% 20%, #C9A84C, transparent 60%); }
+.oc-mariage::before { background: radial-gradient(circle at 80% 20%, #C9A84C, transparent 60%); }
+.oc-luxe::before { background: radial-gradient(circle at 80% 20%, #C9A84C, transparent 60%); }
+
+.oc-emoji { font-size: 52px; margin-bottom: 20px; }
+
+.oc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.oc-arabic {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  color: var(--gold);
+  direction: rtl;
+  margin-bottom: 12px;
+}
+
+.oc-desc {
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.5);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.oc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.cta-desc {
+  font-size: 17px;
+  color: rgba(253, 250, 244, 0.55);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-seller {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(27, 43, 75, 0.8);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 16px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-seller:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: rgba(13, 25, 41, 0.8);
+  border-top: 1px solid var(--border);
+  padding: 60px 40px 40px;
+  max-width: 100%;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-brand {}
+.footer-tagline {
+  font-size: 14px;
+  color: rgba(253, 250, 244, 0.45);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 300px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(27, 43, 75, 0.8);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.social-btn:hover { border-color: var(--gold); background: rgba(201, 168, 76, 0.1); }
+
+.footer-col-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.3);
+}
+
+.footer-langs {
+  display: flex;
+  gap: 12px;
+}
+
+.lang-btn {
+  font-size: 12px;
+  color: rgba(253, 250, 244, 0.4);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.lang-btn.active { color: var(--gold); }
+.lang-btn:hover { color: var(--gold); }
+
+/* ─── DIVIDER ─── */
+.divider {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── WHATSAPP FLOAT ─── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s;
+  animation: wapPulse 3s infinite;
+}
+
+@keyframes wapPulse {
+  0%, 100% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 6px 50px rgba(37, 211, 102, 0.7), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+}
+
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeInUp 0.8s ease forwards; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+.delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+/* ─── SEARCH BAR ─── */
+.search-bar-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+
+.search-container {
+  background: rgba(27, 43, 75, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.3s;
+}
+
+.search-container:focus-within { border-color: var(--gold); }
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-size: 15px;
+  padding: 10px 16px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.search-input::placeholder { color: rgba(253, 250, 244, 0.3); }
+
+.search-filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-chip {
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: rgba(253, 250, 244, 0.6);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filter-chip:hover, .filter-chip.active {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.search-btn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--indigo-deep);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.search-btn:hover { transform: scale(1.03); }
+
+/* ─── EMPTY SLOTS ─── */
+.product-empty {
+  cursor: pointer;
+  border: 2px dashed rgba(201, 168, 76, 0.2) !important;
+  background: rgba(201, 168, 76, 0.02) !important;
+  transition: all 0.3s !important;
+}
+
+.product-empty:hover {
+  border-color: rgba(201, 168, 76, 0.55) !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(201,168,76,0.1) !important;
+}
+
+.empty-slot-img {
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.03);
+  position: relative;
+}
+
+.empty-slot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty-plus {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px dashed rgba(201, 168, 76, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: rgba(201, 168, 76, 0.5);
+  transition: all 0.3s;
+}
+
+.product-empty:hover .empty-plus {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.empty-slot-label {
+  font-size: 13px;
+  color: rgba(201, 168, 76, 0.5);
+  font-weight: 600;
+  text-align: center;
+}
+
+.empty-slot-sub {
+  font-size: 11px;
+  color: rgba(253, 250, 244, 0.25);
+  text-align: center;
+}
+
+.empty-info-placeholder {
+  padding: 4px 0;
+}
+
+.empty-line {
+  background: rgba(201, 168, 76, 0.08);
+  border-radius: 4px;
+  display: block;
+}
+
+.empty-btn-placeholder {
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: rgba(201, 168, 76, 0.7);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Vendor empty */
+.vendor-empty {
+  cursor: pointer;
+  border: 2px dashed rgba(201, 168, 76, 0.2) !important;
+  background: rgba(201, 168, 76, 0.02) !important;
+}
+
+.vendor-empty:hover {
+  border-color: rgba(201, 168, 76, 0.55) !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+}
+
+.vendor-empty-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed rgba(201, 168, 76, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  position: relative;
+}
+
+.vendor-empty-plus {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.vendor-empty-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: rgba(253, 250, 244, 0.35);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.vendor-empty-type {
+  font-size: 12px;
+  color: rgba(201, 168, 76, 0.4);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.vendor-empty-cta {
+  font-size: 13px;
+  color: rgba(201, 168, 76, 0.6);
+  font-weight: 600;
+  text-align: center;
+  border-top: 1px dashed rgba(201, 168, 76, 0.15);
+  padding-top: 14px;
+  transition: color 0.2s;
+}
+
+.vendor-empty:hover .vendor-empty-cta { color: var(--gold); }
+
+.basse-conso-banner {
+  max-width: 1400px;
+  margin: 0 auto 20px;
+  padding: 0 40px;
+}
+
+.basse-banner-inner {
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.basse-text {
+  font-size: 13px;
+  color: rgba(253, 250, 244, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.basse-icon { color: var(--gold); font-size: 16px; }
+
+.basse-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.toggle-switch {
+  width: 36px;
+  height: 20px;
+  background: rgba(201, 168, 76, 0.2);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-switch.on { background: var(--gold); }
+
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+.toggle-switch.on .toggle-knob { left: 19px; }
+
+/* ─── IN-CART BUTTON STATE ─── */
+.add-cart-btn.in-cart {
+  background: rgba(201,168,76,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  cursor: default;
+}
+
+/* ─── SKIP TO CONTENT (accessibilité) ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background: var(--gold);
+  color: var(--indigo-deep);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 99999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 20px; }
+
+/* ─── FOCUS VISIBLE ─── */
+a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── RTL adjustments ─── */
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .hero-content { direction: rtl; }
+[dir="rtl"] .section-tag::before { margin-left: 8px; margin-right: 0; }
+[dir="rtl"] .product-info { text-align: right; }
+[dir="rtl"] .footer-top { direction: rtl; }
+[dir="rtl"] .cart-badge { left: -8px; right: auto; }
+</style>
+</head>
+<body>
+<a href="#products" class="skip-link">Aller au contenu principal</a>
+
+<!-- NAVBAR -->
+<nav role="navigation" aria-label="Navigation principale">
+  <a class="nav-logo" href="#" aria-label="MauriCraft & Style — Accueil">
+    <div class="logo-mark" aria-hidden="true">🏺</div>
+    <div class="logo-text">
+      <span class="logo-main">MauriCraft</span>
+      <span class="logo-sub">& Style · موريكرافت</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" role="menubar" aria-label="Catégories">
+    <li role="none"><a href="#decouvrir" role="menuitem" data-i18n="nav_discover">Découvrir</a></li>
+    <li role="none"><a href="#melahfa" role="menuitem" data-i18n="nav_melahfa">Melahfa & Darra</a></li>
+    <li role="none"><a href="#tissus" role="menuitem" data-i18n="nav_tissus">Tissus</a></li>
+    <li role="none"><a href="#artisans" role="menuitem" data-i18n="nav_artisans">Artisans</a></li>
+    <li role="none"><a href="#occasions" role="menuitem" data-i18n="nav_occasions">Occasions</a></li>
+    <li role="none"><a href="#luxe" role="menuitem" data-i18n="nav_luxe">Occasion Luxe ✨</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="nav-arabic lang-btn" id="lang-toggle-btn"
+      aria-label="Changer la langue vers l'Arabe"
+      onclick="toggleLanguage()"
+      data-i18n="lang_switch">عربي</button>
+    <button class="cart-icon" id="cart-btn"
+      aria-label="Panier, 0 articles"
+      onclick="openCartModal()"
+      style="background:none; border:none; cursor:pointer; position:relative; font-size:20px; color:rgba(253,250,244,0.7);">
+      🛒
+      <span class="cart-badge" id="cart-count" aria-live="polite" aria-atomic="true">0</span>
+    </button>
+    <button class="btn-nav-primary" onclick="openJoinModal()"
+      aria-label="Créer votre boutique sur MauriCraft"
+      data-i18n="nav_sell">Vendre sur MauriCraft</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Section principale — MauriCraft & Style">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="hero-content">
+    <div class="fade-in delay-1">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        <span class="badge-text">Plateforme de confiance · Mauritanie</span>
+      </div>
+
+      <div class="hero-arabic">الموضة الموريتانية الأصيلة</div>
+
+      <h1 class="hero-h1">
+        La Mode Mauritanienne
+        <em>Réinventée.</em>
+      </h1>
+
+      <p class="hero-desc">
+        De la Tindière au monde — Artisans locaux, Tissus authentiques, Melahfa et Darra de qualité.
+        Paiement sécurisé via Bankily · Masrivi · Sadead.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary">Explorer la Collection →</a>
+        <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20Je%20veux%20rejoindre%20la%20plateforme." target="_blank" class="btn-whatsapp">
+          <span class="whatsapp-icon">💬</span>
+          Nous rejoindre sur WhatsApp
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">🇲🇷</div>
+          <div class="stat-label">100% Mauritanien</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0%</div>
+          <div class="stat-label">Commission 1er mois</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Support WhatsApp</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in delay-3">
+      <div class="hero-cards-container">
+
+        <div class="ai-suggest-bubble">
+          <div class="ai-bubble-icon">✨</div>
+          <div class="ai-bubble-text">IA : Melahfa suggérée pour votre mariage !</div>
+        </div>
+
+        <div class="product-card-float card-main">
+          <div class="card-img" style="background:rgba(201,168,76,0.05); border:2px dashed rgba(201,168,76,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:32px; opacity:0.3;">📸</div>
+            <div style="font-size:11px; color:rgba(201,168,76,0.5); text-align:center; padding:0 12px;">Votre produit<br>ici</div>
+          </div>
+          <div class="card-body">
+            <div class="card-vendor" style="color:rgba(201,168,76,0.4);">Votre boutique · Mauritanie</div>
+            <div class="card-name" style="color:rgba(253,250,244,0.3);">Nom de votre produit</div>
+            <div class="card-footer">
+              <div class="card-price" style="color:rgba(201,168,76,0.35);">Prix MRU</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card-float card-secondary">
+          <div class="card-img card-img-sm" style="background:rgba(201,168,76,0.05); border:2px dashed rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:22px; opacity:0.25;">📸</div>
+          </div>
+          <div class="card-body">
+            <div class="card-vendor" style="color:rgba(201,168,76,0.35); font-size:9px;">Votre boutique</div>
+            <div class="card-name card-name-sm" style="color:rgba(253,250,244,0.25);">Votre produit</div>
+          </div>
+        </div>
+
+        <div class="product-card-float card-tertiary">
+          <div class="card-img card-img-sm" style="background:rgba(201,168,76,0.05); border:2px dashed rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:22px; opacity:0.25;">📸</div>
+          </div>
+          <div class="card-body">
+            <div class="card-vendor" style="color:rgba(201,168,76,0.35); font-size:9px;">Votre boutique</div>
+            <div class="card-name card-name-sm" style="color:rgba(253,250,244,0.25);">Votre produit</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar fade-in delay-4">
+  <div class="trust-item"><span class="trust-icon">🔒</span> Paiement 100% Sécurisé</div>
+  <div class="trust-item"><span class="trust-icon">✅</span> Artisans Vérifiés</div>
+  <div class="trust-item"><span class="trust-icon">🚚</span> Livraison Géolocalisée</div>
+  <div class="trust-item"><span class="trust-icon">💬</span> WhatsApp-First</div>
+  <div class="trust-item"><span class="trust-icon">🤖</span> IA Style Assistant</div>
+  <div class="trust-item"><span class="trust-icon">🇲🇷</span> 100% Made in Mauritanie</div>
+</div>
+
+<!-- BASSE CONSO BANNER -->
+<div class="basse-conso-banner">
+  <div class="basse-banner-inner">
+    <div class="basse-text">
+      <span class="basse-icon">📡</span>
+      Mode Basse Consommation — Optimisé pour les connexions 4G faibles à l'intérieur du pays
+    </div>
+    <div class="basse-toggle" onclick="this.querySelector('.toggle-switch').classList.toggle('on')">
+      <span>Activer</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-bar-section" role="search" aria-label="Recherche de produits">
+  <div class="search-container">
+    <span style="padding-left: 8px; font-size: 20px; opacity: 0.4;" aria-hidden="true">🔍</span>
+    <input class="search-input" type="text" id="search-input"
+      placeholder="Chercher Melahfa, Tissu Bazin, Bijoux, Darra…"
+      aria-label="Rechercher un produit"
+      data-i18n-placeholder="search_placeholder">
+    <div class="search-filters" role="group" aria-label="Filtrer par catégorie">
+      <button class="filter-chip active" data-category="tout" aria-pressed="true" data-i18n="filter_all">Tout</button>
+      <button class="filter-chip" data-category="melahfa" aria-pressed="false" data-i18n="filter_melahfa">Melahfa</button>
+      <button class="filter-chip" data-category="tissu" aria-pressed="false" data-i18n="filter_tissu">Tissu</button>
+      <button class="filter-chip" data-category="bijoux" aria-pressed="false" data-i18n="filter_bijoux">Bijoux</button>
+      <button class="filter-chip" data-category="mariage" aria-pressed="false" data-i18n="filter_mariage">Mariage</button>
+    </div>
+    <button class="search-btn" id="search-btn" aria-label="Lancer la recherche" data-i18n="search_btn">🔍 Rechercher</button>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="decouvrir">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Parcourir</div>
+      <h2 class="section-title">Catégories <span>Phares</span></h2>
+    </div>
+  </div>
+
+  <div class="categories-grid">
+    <div class="category-card" onclick="scrollToSection('melahfa')">
+      <div class="cat-bg cat-bg-melahfa"></div>
+      <span class="cat-emoji">🥻</span>
+      <div class="cat-label">Melahfa</div>
+      <div class="cat-sublabel">الملحفة</div>
+      <div class="cat-count">En attente de vendeurs</div>
+    </div>
+    <div class="category-card" onclick="scrollToSection('tissus')">
+      <div class="cat-bg cat-bg-tissu"></div>
+      <span class="cat-emoji">🧵</span>
+      <div class="cat-label">Tissus & Bazin</div>
+      <div class="cat-sublabel">الأقمشة</div>
+      <div class="cat-count">En attente de vendeurs</div>
+    </div>
+    <div class="category-card" onclick="scrollToSection('bijoux')">
+      <div class="cat-bg cat-bg-bijoux"></div>
+      <span class="cat-emoji">💍</span>
+      <div class="cat-label">Bijoux Artisanaux</div>
+      <div class="cat-sublabel">المجوهرات</div>
+      <div class="cat-count">En attente de vendeurs</div>
+    </div>
+    <div class="category-card" onclick="scrollToSection('darra')">
+      <div class="cat-bg cat-bg-darra"></div>
+      <span class="cat-emoji">👘</span>
+      <div class="cat-label">Darra & Boubou</div>
+      <div class="cat-sublabel">الدرا والبوبو</div>
+      <div class="cat-count">En attente de vendeurs</div>
+    </div>
+    <div class="category-card" onclick="scrollToSection('luxe')">
+      <div class="cat-bg cat-bg-ceremonie"></div>
+      <span class="cat-emoji">✨</span>
+      <div class="cat-label">Luxe & Cérémonie</div>
+      <div class="cat-sublabel">المناسبات الفاخرة</div>
+      <div class="cat-count">En attente de vendeurs</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURED PRODUCTS -->
+<section id="products" aria-label="Produits disponibles">
+  <!-- Category anchors -->
+  <span id="melahfa" style="display:block; height:0; visibility:hidden;" aria-hidden="true"></span>
+  <span id="tissus" style="display:block; height:0; visibility:hidden;" aria-hidden="true"></span>
+  <span id="bijoux" style="display:block; height:0; visibility:hidden;" aria-hidden="true"></span>
+  <span id="darra" style="display:block; height:0; visibility:hidden;" aria-hidden="true"></span>
+  <span id="luxe-produits" style="display:block; height:0; visibility:hidden;" aria-hidden="true"></span>
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag" data-i18n="products_tag">Tendance</div>
+      <h2 class="section-title" data-i18n="products_title">Produits <span>à venir</span></h2>
+    </div>
+    <a href="#" class="view-all" onclick="openVendorModal(); return false;" data-i18n="products_vendor_cta">Devenir vendeur →</a>
+  </div>
+
+  <!-- Status banner -->
+  <div id="products-status" style="display:none; text-align:center; padding:12px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); border-radius:12px; margin-bottom:24px; font-size:13px; color:rgba(201,168,76,0.8);" role="status" aria-live="polite"></div>
+
+  <!-- Dynamic products grid — populated by JS -->
+  <div class="products-grid" id="products-grid" role="list" aria-label="Liste des produits">
+    <!-- Loaded from products data -->
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- AI FEATURE SECTION -->
+<div style="max-width:1400px;margin:0 auto;padding:80px 40px;">
+<div class="ai-section">
+  <div class="ai-visual">
+    <div class="ai-phone-mock">
+      <div class="phone-notch"></div>
+      <div class="phone-content">
+        <div class="phone-header">🤖 IA Style Mauritanien</div>
+        <div class="phone-avatar-area">
+          👤
+          <div class="ai-scanning"></div>
+        </div>
+        <div class="phone-result">
+          <div class="phone-result-title">✨ Suggestions pour votre morphologie</div>
+          <div class="phone-suggestion">
+            <div class="sug-thumb">🥻</div>
+            <div class="sug-info">
+              <div class="sug-name">Melahfa Dorée</div>
+              <div class="sug-price">84,000 MRU</div>
+              <div class="sug-match">95% compatible • Mariage</div>
+            </div>
+          </div>
+          <div class="phone-suggestion">
+            <div class="sug-thumb">👘</div>
+            <div class="sug-info">
+              <div class="sug-name">Darra Gazé Bleu</div>
+              <div class="sug-price">62,000 MRU</div>
+              <div class="sug-match">88% compatible • Eid</div>
+            </div>
+          </div>
+          <div class="phone-suggestion">
+            <div class="sug-thumb">🧵</div>
+            <div class="sug-info">
+              <div class="sug-name">Bazin Bordeaux</div>
+              <div class="sug-price">42,500 MRU</div>
+              <div class="sug-match">82% compatible • Quotidien</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wap-bubble">
+      <div class="wap-icon">💬</div>
+      <div class="wap-text">Commande confirmée ! Bon de commande #4721 généré →</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-tag">Intelligence Artificielle</div>
+    <h2 class="section-title" style="margin-bottom: 20px;">
+      L'IA au Service de la
+      <span>Mode Locale</span>
+    </h2>
+    <p style="font-size: 16px; color: rgba(253, 250, 244, 0.55); line-height: 1.7; margin-bottom: 36px;">
+      Une IA conçue pour comprendre le drapé mauritanien, la qualité des tissus et les codes vestimentaires de chaque occasion.
+    </p>
+
+    <div class="ai-features-list">
+      <div class="ai-feature">
+        <div class="ai-feature-icon">🔍</div>
+        <div class="ai-feature-text">
+          <div class="ai-feature-title">Analyse Morphologique</div>
+          <div class="ai-feature-desc">Importez votre photo, l'IA analyse votre silhouette et suggère les coupes et drapés qui vous subliment selon l'occasion choisie.</div>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">🎊</div>
+        <div class="ai-feature-text">
+          <div class="ai-feature-title">Style par Occasion</div>
+          <div class="ai-feature-desc">Mariage, Eid el-Fitr, Tabaski, Baptême — l'IA connaît les codes culturels et propose la tenue juste selon l'événement.</div>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">✅</div>
+        <div class="ai-feature-text">
+          <div class="ai-feature-title">Authentification des Tissus</div>
+          <div class="ai-feature-desc">Label "Produit en Mauritanie" certifié. L'IA analyse les photos de tissu pour valider l'authenticité du Bazin et des voiles.</div>
+        </div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-icon">💬</div>
+        <div class="ai-feature-text">
+          <div class="ai-feature-title">Passerelle WhatsApp Automatisée</div>
+          <div class="ai-feature-desc">Finalisez votre commande sur WhatsApp. Un bon de commande numérique est généré automatiquement et envoyé au vendeur.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PAYMENT SECTION -->
+<div style="padding: 80px 40px;">
+<div class="payment-section">
+  <div class="section-tag">Paiement Local</div>
+  <h2 class="section-title">
+    Payez comme vous <span>Voulez</span>
+  </h2>
+  <p style="font-size: 15px; color: rgba(253, 250, 244, 0.5); margin-top: 12px; line-height: 1.6; max-width: 600px;">
+    Nous intégrons les solutions de paiement local que vous utilisez déjà. Pas de carte bancaire requise.
+  </p>
+
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="payment-logo">📱</div>
+      <div class="payment-name">Bankily</div>
+      <div class="payment-desc">Le portefeuille mobile le plus utilisé en Mauritanie. Payez en 2 clics depuis votre téléphone.</div>
+      <span class="payment-tag">✓ Intégré</span>
+    </div>
+    <div class="payment-card">
+      <div class="payment-logo">💳</div>
+      <div class="payment-name">Masrivi</div>
+      <div class="payment-desc">Solution de paiement mobile sécurisée. Compatible avec tous les opérateurs mauritaniens.</div>
+      <span class="payment-tag">✓ Intégré</span>
+    </div>
+    <div class="payment-card">
+      <div class="payment-logo">🏦</div>
+      <div class="payment-name">Sadead</div>
+      <div class="payment-desc">Paiement via les agences locales et réseau bancaire mauritanien étendu.</div>
+      <span class="payment-tag">✓ Intégré</span>
+    </div>
+
+    <div class="escrow-feature">
+      <div class="escrow-flow">
+        <div class="escrow-step">
+          <div class="escrow-icon">👤</div>
+          <div class="escrow-label">Client paye</div>
+        </div>
+        <div class="escrow-arrow">→</div>
+        <div class="escrow-step">
+          <div class="escrow-icon">🔒</div>
+          <div class="escrow-label">MauriCraft bloque</div>
+        </div>
+        <div class="escrow-arrow">→</div>
+        <div class="escrow-step">
+          <div class="escrow-icon">📦</div>
+          <div class="escrow-label">Livraison confirmée</div>
+        </div>
+        <div class="escrow-arrow">→</div>
+        <div class="escrow-step">
+          <div class="escrow-icon">✅</div>
+          <div class="escrow-label">Vendeur reçoit</div>
+        </div>
+      </div>
+      <div class="escrow-text">
+        <div class="escrow-title">Système de Mise en Réserve (Escrow)</div>
+        <div class="escrow-desc">
+          Votre argent est sécurisé par la plateforme jusqu'à confirmation de livraison par le client. 
+          Ni le vendeur ni nous ne touchons l'argent avant que vous soyez satisfait. 
+          Le tiers de confiance que le commerce informel n'a jamais eu.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ARTISANS VEDETTES -->
+<section id="artisans">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Communauté</div>
+      <h2 class="section-title">Artisans <span>Vérifiés</span></h2>
+    </div>
+    <a href="#" class="view-all">Tous les artisans →</a>
+  </div>
+
+  <div class="vendors-grid">
+    <!-- Slot Artisan Vide 1 -->
+    <div class="vendor-card vendor-empty" onclick="openJoinModal()">
+      <div class="vendor-empty-avatar">
+        <span style="font-size:28px; opacity:0.4;">👤</span>
+        <div class="vendor-empty-plus">+</div>
+      </div>
+      <div class="vendor-empty-name">Votre Boutique ici</div>
+      <div class="vendor-empty-type">Rejoindre la plateforme</div>
+      <div class="vendor-empty-cta">Créer mon profil →</div>
+    </div>
+
+    <!-- Slot Artisan Vide 2 -->
+    <div class="vendor-card vendor-empty" onclick="openJoinModal()">
+      <div class="vendor-empty-avatar">
+        <span style="font-size:28px; opacity:0.4;">👤</span>
+        <div class="vendor-empty-plus">+</div>
+      </div>
+      <div class="vendor-empty-name">Votre Boutique ici</div>
+      <div class="vendor-empty-type">Rejoindre la plateforme</div>
+      <div class="vendor-empty-cta">Créer mon profil →</div>
+    </div>
+
+    <!-- Slot Artisan Vide 3 -->
+    <div class="vendor-card vendor-empty" onclick="openJoinModal()">
+      <div class="vendor-empty-avatar">
+        <span style="font-size:28px; opacity:0.4;">👤</span>
+        <div class="vendor-empty-plus">+</div>
+      </div>
+      <div class="vendor-empty-name">Votre Boutique ici</div>
+      <div class="vendor-empty-type">Rejoindre la plateforme</div>
+      <div class="vendor-empty-cta">Créer mon profil →</div>
+    </div>
+
+    <!-- Slot Artisan Vide 4 -->
+    <div class="vendor-card vendor-empty" onclick="openJoinModal()">
+      <div class="vendor-empty-avatar">
+        <span style="font-size:28px; opacity:0.4;">👤</span>
+        <div class="vendor-empty-plus">+</div>
+      </div>
+      <div class="vendor-empty-name">Votre Boutique ici</div>
+      <div class="vendor-empty-type">Rejoindre la plateforme</div>
+      <div class="vendor-empty-cta">Créer mon profil →</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OCCASIONS SECTION -->
+<div style="padding: 80px 40px;" id="occasions">
+<div class="occasion-section">
+  <div class="section-tag">Pour Chaque Moment</div>
+  <h2 class="section-title">Occasions & <span>Cérémonies</span></h2>
+  <p style="font-size: 15px; color: rgba(253, 250, 244, 0.5); margin-top: 12px; line-height: 1.6; max-width: 600px;">
+    Des collections curatées pour chaque moment de la vie mauritanienne.
+  </p>
+
+  <div class="occasions-grid">
+    <div class="occasion-card oc-ramadan" onclick="scrollToSection('melahfa')">
+      <div class="oc-emoji">🌙</div>
+      <div class="oc-title">Ramadan & Eid</div>
+      <div class="oc-arabic">رمضان والعيد</div>
+      <div class="oc-desc">Collections spéciales pour les nuits du Ramadan et les fêtes de l'Eid. Tenues légères, élégantes et modestes.</div>
+      <span class="oc-cta">Voir les tenues →</span>
+    </div>
+
+    <div class="occasion-card oc-mariage" onclick="scrollToSection('melahfa')">
+      <div class="oc-emoji">💍</div>
+      <div class="oc-title">Mariages & Teberak</div>
+      <div class="oc-arabic">الأعراس والتبريك</div>
+      <div class="oc-desc">Du trousseau de mariée aux tenues des invités. Melahfa de cérémonie, bijoux et accessoires complets.</div>
+      <span class="oc-cta">Voir les tenues →</span>
+    </div>
+
+    <div class="occasion-card oc-luxe" id="luxe" onclick="scrollToSection('luxe-produits')">
+      <div class="oc-emoji">✨</div>
+      <div class="oc-title">Occasion Luxe — 2ème Main</div>
+      <div class="oc-arabic">فرصة فاخرة</div>
+      <div class="oc-desc">Tenues de cérémonie portées une seule fois. Le marché de la revente de luxe organisé enfin.</div>
+      <span class="oc-cta">Voir les pièces uniques →</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA VENDEUR -->
+<section class="cta-section">
+  <div class="section-tag" style="justify-content: center;">Pour les Artisans</div>
+  <h2 class="cta-title">
+    Vendez sur <span style="color: var(--gold);">MauriCraft</span>
+    <br>Touchez toute la Mauritanie
+  </h2>
+  <p class="cta-desc">
+    Soyez parmi les premiers artisans mauritaniens sur la plateforme. Nous venons chez vous prendre des photos professionnelles, nous créons votre boutique, 
+    nous gérons les paiements. Vous, vous créez.
+  </p>
+  <div class="cta-buttons">
+    <a href="#" onclick="openVendorModal(); return false;" class="btn-primary">Créer ma boutique — Gratuit</a>
+    <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20Je%20souhaite%20le%20service%20photo%20professionnelle%20%C3%A0%20domicile." target="_blank" class="btn-seller">
+      📸 Service photo à domicile
+    </a>
+    <a href="https://wa.me/221782352549" target="_blank" class="btn-whatsapp">
+      <span>💬</span> +221 78 235 25 49
+    </a>
+  </div>
+
+  <div style="display: flex; justify-content: center; gap: 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border);">
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold);">0%</div>
+      <div style="font-size: 12px; color: rgba(253,250,244,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;">Commission le 1er mois</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold);">48h</div>
+      <div style="font-size: 12px; color: rgba(253,250,244,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;">Pour créer votre boutique</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold);">24/7</div>
+      <div style="font-size: 12px; color: rgba(253,250,244,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;">Support WhatsApp</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div class="logo-mark">🏺</div>
+          <div class="logo-text">
+            <span class="logo-main">MauriCraft & Style</span>
+            <span class="logo-sub">موريكرافت وستايل</span>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          La première plateforme de social-commerce mauritanienne. 
+          Artisans locaux, paiements locaux, livraison géolocalisée. 
+          Fiers de valoriser la mode mauritanienne.
+        </p>
+        <div class="footer-social">
+          <div class="social-btn">📘</div>
+          <div class="social-btn">📸</div>
+          <div class="social-btn">💬</div>
+          <div class="social-btn">🐦</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Explorer</div>
+        <ul class="footer-links">
+          <li><a href="#">Melahfa & Voiles</a></li>
+          <li><a href="#">Tissus Bazin</a></li>
+          <li><a href="#">Bijoux Artisanaux</a></li>
+          <li><a href="#">Darra & Boubou</a></li>
+          <li><a href="#">Occasion Luxe</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Vendeurs</div>
+        <ul class="footer-links">
+          <li><a href="#">Créer ma boutique</a></li>
+          <li><a href="#">Service Photo Pro</a></li>
+          <li><a href="#">Abonnement Premium</a></li>
+          <li><a href="#">Guide du vendeur</a></li>
+          <li><a href="#">Support WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Plateforme</div>
+        <ul class="footer-links">
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Paiements & Escrow</a></li>
+          <li><a href="#">Livraison locale</a></li>
+          <li><a href="#">IA Style Assistant</a></li>
+          <li><a href="#">Conditions d'utilisation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 MauriCraft & Style — Nouakchott, Mauritanie 🇲🇷</div>
+      <div class="footer-langs">
+        <span class="lang-btn active">Français</span>
+        <span style="color: rgba(253,250,244,0.2);">|</span>
+        <span class="lang-btn" style="font-family: 'Tajawal', sans-serif;">العربية</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<div class="whatsapp-float" onclick="openJoinModal()" aria-label="Contacter MauriCraft sur WhatsApp" role="button" tabindex="0">💬</div>
+
+<!-- Bouton flottant Assistant IA -->
+<div id="open-ai-btn"
+  onclick="openAIModal()"
+  role="button" tabindex="0"
+  aria-label="Ouvrir l'assistant style IA"
+  onkeypress="if(event.key==='Enter')openAIModal()"
+  style="position:fixed; bottom:100px; right:30px; z-index:900;
+    width:52px; height:52px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:24px; cursor:pointer;
+    box-shadow:0 6px 28px rgba(201,168,76,0.45);
+    transition:all 0.3s;">🤖</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MODAL PANIER                               -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="cart-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+  <div class="modal-box" style="max-width:500px;">
+    <button class="modal-close" onclick="closeAllModals()" aria-label="Fermer le panier">✕</button>
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-size:44px; margin-bottom:10px;">🛒</div>
+      <div class="modal-title" id="cart-modal-title" data-i18n="cart_title">Votre Panier</div>
+      <div class="modal-arabic" data-i18n="cart_arabic">سلة التسوق</div>
+    </div>
+    <div id="cart-items-list" role="list" aria-label="Articles dans le panier" style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; max-height:300px; overflow-y:auto;">
+      <!-- Filled by JS -->
+    </div>
+    <div id="cart-empty-msg" style="text-align:center; padding:32px; color:rgba(253,250,244,0.35);">
+      <div style="font-size:40px; margin-bottom:12px;">🛍️</div>
+      <div style="font-size:14px;" data-i18n="cart_empty">Votre panier est vide.<br>Rejoignez un vendeur pour commencer.</div>
+    </div>
+    <div id="cart-footer" style="display:none; border-top:1px solid rgba(201,168,76,0.15); padding-top:16px;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+        <span style="font-size:14px; color:rgba(253,250,244,0.6);" data-i18n="cart_total">Total</span>
+        <span id="cart-total" style="font-size:20px; font-weight:700; color:var(--gold);">0 MRU</span>
+      </div>
+      <!-- Modes de paiement -->
+      <div style="font-size:11px; color:rgba(253,250,244,0.45); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px;" data-i18n="payment_select">Choisir votre mode de paiement :</div>
+      <div id="payment-method-btns" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+        <!-- Rempli par renderCartModal() -->
+      </div>
+      <button onclick="clearCart()" style="width:100%; background:none; border:1px solid rgba(193,68,14,0.3); color:rgba(193,68,14,0.7); padding:10px; border-radius:10px; cursor:pointer; font-size:13px; font-family:inherit; transition:all 0.2s;" data-i18n="cart_clear">🗑️ Vider le panier</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MODAL IA — Assistant Style MauriCraft      -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="ai-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ai-modal-title" style="align-items:flex-end; padding-bottom:0;">
+  <div class="modal-box" style="max-width:560px; border-radius:28px 28px 0 0; margin-bottom:0; max-height:90vh; overflow-y:auto;">
+    <button class="modal-close" onclick="closeAllModals()" aria-label="Fermer l'assistant IA">✕</button>
+
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-size:44px; margin-bottom:10px;">🤖</div>
+      <div class="modal-title" id="ai-modal-title" data-i18n="ai_title">Assistant Style MauriCraft</div>
+      <div class="modal-arabic" data-i18n="ai_subtitle">Posez votre question de style</div>
+    </div>
+
+    <!-- Champ question -->
+    <div style="display:flex; gap:8px; margin-bottom:0;">
+      <input id="ai-chat-input" type="text"
+        data-i18n-placeholder="ai_placeholder"
+        placeholder="Ex : Que porter pour un mariage à Nouakchott ?"
+        aria-label="Question pour l'assistant IA"
+        style="flex:1; background:rgba(27,43,75,0.7); border:1px solid rgba(201,168,76,0.25);
+          color:white; padding:12px 16px; border-radius:12px; font-size:14px;
+          font-family:inherit; outline:none; transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='var(--gold)'"
+        onblur="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <button id="ai-ask-btn" onclick="handleAIQuery()"
+        aria-label="Envoyer la question à l'IA"
+        style="background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+          color:var(--indigo-deep); border:none; padding:12px 18px; border-radius:12px;
+          font-size:13px; font-weight:700; cursor:pointer; font-family:inherit;
+          white-space:nowrap; transition:all 0.3s;"
+        data-i18n="ai_btn">Demander ✨</button>
+    </div>
+
+    <!-- Réponse IA -->
+    <div id="ai-chat-output"></div>
+
+    <!-- Recommandations personnalisées -->
+    <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(201,168,76,0.12);">
+      <div style="font-size:11px; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+        <span>✨</span>
+        <span data-i18n="ai_reco_title">Recommandé pour vous</span>
+        <span style="color:rgba(253,250,244,0.3); font-size:10px;" data-i18n="ai_reco_based">— basé sur vos préférences</span>
+      </div>
+      <div id="ai-reco-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px;" role="list" aria-label="Produits recommandés">
+        <!-- Rempli par renderRecommendations() -->
+      </div>
+    </div>
+
+    <!-- Lien vers WhatsApp pour conseil humain -->
+    <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20J%27ai%20besoin%20d%27un%20conseil%20de%20style%20personnalis%C3%A9."
+      target="_blank"
+      style="display:flex; align-items:center; justify-content:center; gap:10px;
+        background:rgba(37,211,102,0.08); border:1px solid rgba(37,211,102,0.25);
+        color:#25D366; text-decoration:none; padding:12px; border-radius:12px;
+        font-size:13px; font-weight:600; margin-top:16px; transition:all 0.3s;"
+      onmouseover="this.style.background='rgba(37,211,102,0.15)'"
+      onmouseout="this.style.background='rgba(37,211,102,0.08)'">
+      💬 Conseil personnalisé par WhatsApp →
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MODAL 1 — Contact général                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="join-modal-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAllModals()">✕</button>
+    <div style="text-align:center; margin-bottom:28px;">
+      <div style="font-size:52px; margin-bottom:12px;">🏺</div>
+      <div class="modal-title">MauriCraft & Style</div>
+      <div class="modal-arabic">موريكرافت وستايل</div>
+      <div class="modal-subtitle">Que souhaitez-vous faire ?</div>
+    </div>
+    <div class="modal-options">
+      <div class="modal-option modal-option-green" onclick="openVendorModal()">
+        <span style="font-size:26px;">🏪</span>
+        <div>
+          <div class="modal-opt-title">Je veux vendre sur MauriCraft</div>
+          <div class="modal-opt-sub">Créer ma boutique — sous validation admin</div>
+        </div>
+        <span class="modal-opt-arrow">→</span>
+      </div>
+      <div class="modal-option modal-option-gold" onclick="openEscrowModal()">
+        <span style="font-size:26px;">🛍️</span>
+        <div>
+          <div class="modal-opt-title">Je veux acheter un produit</div>
+          <div class="modal-opt-sub">Comprendre notre système de sécurité</div>
+        </div>
+        <span class="modal-opt-arrow">→</span>
+      </div>
+      <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20J%27ai%20une%20question%20g%C3%A9n%C3%A9rale." target="_blank" class="modal-option modal-option-dim">
+        <span style="font-size:26px;">💬</span>
+        <div>
+          <div class="modal-opt-title">Question générale</div>
+          <div class="modal-opt-sub">On vous répond rapidement sur WhatsApp</div>
+        </div>
+        <span class="modal-opt-arrow" style="color:rgba(253,250,244,0.3);">→</span>
+      </a>
+    </div>
+    <div class="modal-footer-contact">
+      <div style="font-size:12px; color:rgba(253,250,244,0.35); margin-bottom:6px;">Contact direct</div>
+      <a href="https://wa.me/221782352549" target="_blank" class="modal-wa-number">💬 +221 78 235 25 49</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MODAL 2 — Devenir Vendeur (avec validation) -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="vendor-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="vendor-modal-title">
+  <div class="modal-box" style="max-width:520px;">
+    <button class="modal-close" onclick="closeAllModals()">✕</button>
+    <div style="text-align:center; margin-bottom:32px;">
+      <div style="font-size:48px; margin-bottom:12px;">🏪</div>
+      <div class="modal-title">Créer votre boutique</div>
+      <div class="modal-arabic">إنشاء متجرك</div>
+    </div>
+
+    <!-- Étapes process -->
+    <div class="vendor-steps">
+      <div class="vstep vstep-active">
+        <div class="vstep-num">1</div>
+        <div class="vstep-content">
+          <div class="vstep-title">Vous envoyez votre demande</div>
+          <div class="vstep-desc">Via WhatsApp — nom, type de produits, ville</div>
+        </div>
+      </div>
+      <div class="vstep-line"></div>
+      <div class="vstep vstep-pending">
+        <div class="vstep-num">2</div>
+        <div class="vstep-content">
+          <div class="vstep-title">Validation par l'admin</div>
+          <div class="vstep-desc">Nous examinons votre profil sous 24–48h et vous confirmons l'accès</div>
+        </div>
+      </div>
+      <div class="vstep-line"></div>
+      <div class="vstep vstep-pending">
+        <div class="vstep-num">3</div>
+        <div class="vstep-content">
+          <div class="vstep-title">Votre boutique est créée</div>
+          <div class="vstep-desc">Ajout de vos produits, photos professionnelles disponibles</div>
+        </div>
+      </div>
+      <div class="vstep-line"></div>
+      <div class="vstep vstep-pending">
+        <div class="vstep-num">4</div>
+        <div class="vstep-content">
+          <div class="vstep-title">Vous vendez & recevez vos paiements</div>
+          <div class="vstep-desc">Fonds sécurisés, libérés après confirmation de livraison</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vendor-note">
+      <span style="font-size:16px;">⚠️</span>
+      <div>
+        <strong>Validation obligatoire :</strong> Toute nouvelle boutique doit être approuvée par l'administrateur MauriCraft avant d'être visible sur la plateforme. Cette étape garantit la qualité et la confiance sur la marketplace.
+      </div>
+    </div>
+
+    <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20Je%20souhaite%20cr%C3%A9er%20ma%20boutique.%20Voici%20mes%20informations%20%3A%0A%0A%E2%96%B8%20Nom%20%3A%20%0A%E2%96%B8%20Type%20de%20produits%20%3A%20%0A%E2%96%B8%20Ville%20%3A%20%0A%E2%96%B8%20Contact%20%3A%20%0A%0AJ%27attends%20votre%20validation%20pour%20rejoindre%20la%20plateforme." target="_blank" class="modal-wa-btn">
+      <span style="font-size:22px;">💬</span> Envoyer ma demande sur WhatsApp
+    </a>
+    <p style="text-align:center; font-size:11px; color:rgba(253,250,244,0.3); margin-top:12px;">Un message pré-rempli sera envoyé avec vos infos à compléter</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MODAL 3 — Système Escrow / Sécurité Acheteur -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="escrow-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="escrow-modal-title">
+  <div class="modal-box" style="max-width:560px;">
+    <button class="modal-close" onclick="closeAllModals()">✕</button>
+    <div style="text-align:center; margin-bottom:28px;">
+      <div style="font-size:48px; margin-bottom:12px;">🔒</div>
+      <div class="modal-title">Votre argent est protégé</div>
+      <div class="modal-arabic">أموالك محمية دائماً</div>
+      <div class="modal-subtitle">Comment fonctionne notre système de sécurité escrow</div>
+    </div>
+
+    <!-- Escrow Flow Steps -->
+    <div class="escrow-steps">
+
+      <div class="escrow-step-full escrow-step-blue">
+        <div class="escrow-step-icon">👤</div>
+        <div class="escrow-step-body">
+          <div class="escrow-step-num">Étape 1</div>
+          <div class="escrow-step-title">Vous passez commande et payez</div>
+          <div class="escrow-step-desc">Via Bankily, Masrivi ou Sadead. Votre paiement est reçu par MauriCraft — pas par le vendeur.</div>
+          <div class="escrow-step-tag">💳 Bankily · Masrivi · Sadead</div>
+        </div>
+      </div>
+
+      <div class="escrow-connector">
+        <div class="escrow-conn-line"></div>
+        <div class="escrow-conn-icon">🔒</div>
+        <div class="escrow-conn-line"></div>
+      </div>
+
+      <div class="escrow-step-full escrow-step-gold">
+        <div class="escrow-step-icon">🏦</div>
+        <div class="escrow-step-body">
+          <div class="escrow-step-num">Étape 2</div>
+          <div class="escrow-step-title">MauriCraft bloque les fonds</div>
+          <div class="escrow-step-desc">L'argent est sécurisé dans notre compte escrow. Le vendeur est notifié mais <strong>ne peut pas y accéder</strong> tant que vous n'avez pas reçu votre commande.</div>
+          <div class="escrow-step-tag" style="background:rgba(201,168,76,0.15); color:var(--gold); border-color:rgba(201,168,76,0.3);">⏳ Fonds bloqués — Vendeur notifié</div>
+        </div>
+      </div>
+
+      <div class="escrow-connector">
+        <div class="escrow-conn-line"></div>
+        <div class="escrow-conn-icon">🚚</div>
+        <div class="escrow-conn-line"></div>
+      </div>
+
+      <div class="escrow-step-full escrow-step-orange">
+        <div class="escrow-step-icon">📦</div>
+        <div class="escrow-step-body">
+          <div class="escrow-step-num">Étape 3</div>
+          <div class="escrow-step-title">Livraison — Double confirmation requise</div>
+          <div class="escrow-step-desc">À la réception, <strong>vous ET le livreur</strong> devez confirmer la livraison. Le livreur scanne ou confirme la remise en main propre, vous confirmez la réception.</div>
+          <div class="escrow-two-confirms">
+            <div class="escrow-confirm-item">
+              <span style="font-size:20px;">🚚</span>
+              <div>
+                <div style="font-size:12px; font-weight:700; color:white;">Le livreur confirme</div>
+                <div style="font-size:11px; color:rgba(253,250,244,0.5);">Remise effectuée</div>
+              </div>
+            </div>
+            <span style="color:var(--gold); font-size:18px; font-weight:700;">+</span>
+            <div class="escrow-confirm-item">
+              <span style="font-size:20px;">👤</span>
+              <div>
+                <div style="font-size:12px; font-weight:700; color:white;">Vous confirmez</div>
+                <div style="font-size:11px; color:rgba(253,250,244,0.5);">Reçu & satisfait</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="escrow-connector">
+        <div class="escrow-conn-line"></div>
+        <div class="escrow-conn-icon">✅</div>
+        <div class="escrow-conn-line"></div>
+      </div>
+
+      <div class="escrow-step-full escrow-step-green">
+        <div class="escrow-step-icon">💰</div>
+        <div class="escrow-step-body">
+          <div class="escrow-step-num">Étape 4</div>
+          <div class="escrow-step-title">Le vendeur reçoit son paiement</div>
+          <div class="escrow-step-desc">Seulement après la double confirmation, les fonds sont libérés automatiquement au vendeur. Zéro risque pour vous.</div>
+          <div class="escrow-step-tag" style="background:rgba(37,211,102,0.12); color:#25D366; border-color:rgba(37,211,102,0.3);">✅ Paiement libéré au vendeur</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Si problème -->
+    <div class="escrow-dispute">
+      <div style="font-size:20px;">⚖️</div>
+      <div>
+        <strong>En cas de litige ?</strong> Si vous n'êtes pas satisfait ou si la commande n'arrive pas, contactez MauriCraft directement. Les fonds restent bloqués jusqu'à résolution.
+        <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20J%27ai%20un%20probl%C3%A8me%20avec%20ma%20commande." target="_blank" style="color:#25D366; margin-left:6px; font-weight:600;">Signaler →</a>
+      </div>
+    </div>
+
+    <a href="https://wa.me/221782352549?text=Bonjour%20MauriCraft%20%F0%9F%8F%BA%20Je%20souhaite%20passer%20une%20commande%20en%20toute%20s%C3%A9curit%C3%A9." target="_blank" class="modal-wa-btn" style="margin-top:24px;">
+      <span style="font-size:20px;">🛍️</span> Commander en toute sécurité
+    </a>
+  </div>
+</div>
+
+<style>
+/* ─── MODALS SHARED ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-box {
+  background: linear-gradient(160deg, #1B2B4B, #0D1929);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 28px;
+  padding: 44px 40px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.08);
+  margin: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px; right: 20px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(253,250,244,0.6);
+  font-size: 18px;
+  cursor: pointer;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover { background: rgba(201,168,76,0.15); color: var(--gold); }
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.modal-arabic {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  color: rgba(201,168,76,0.65);
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  color: rgba(253,250,244,0.45);
+  line-height: 1.5;
+}
+
+.modal-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+.modal-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.modal-option-green { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25); }
+.modal-option-green:hover { background: rgba(37,211,102,0.15); border-color: #25D366; }
+.modal-option-gold { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); }
+.modal-option-gold:hover { background: rgba(201,168,76,0.14); border-color: var(--gold); }
+.modal-option-dim { background: rgba(27,43,75,0.6); border: 1px solid rgba(201,168,76,0.12); }
+.modal-option-dim:hover { border-color: rgba(201,168,76,0.3); }
+
+.modal-opt-title { font-size: 14px; font-weight: 700; color: white; }
+.modal-opt-sub { font-size: 11px; color: rgba(253,250,244,0.45); margin-top: 2px; }
+.modal-opt-arrow { margin-left: auto; color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+.modal-footer-contact {
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  padding-top: 18px;
+}
+
+.modal-wa-number {
+  font-size: 19px;
+  font-weight: 700;
+  color: #25D366;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+.modal-wa-btn:hover { background: #1da851; transform: translateY(-1px); }
+
+/* ─── VENDOR MODAL ─── */
+.vendor-steps { display: flex; flex-direction: column; margin-bottom: 24px; }
+
+.vstep {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.vstep-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.vstep-active .vstep-num { background: var(--gold); color: var(--indigo-deep); }
+.vstep-pending .vstep-num { background: rgba(201,168,76,0.12); border: 1px dashed rgba(201,168,76,0.35); color: rgba(201,168,76,0.6); }
+
+.vstep-content {}
+.vstep-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 2px; }
+.vstep-active .vstep-title { color: var(--gold); }
+.vstep-desc { font-size: 12px; color: rgba(253,250,244,0.45); line-height: 1.5; }
+
+.vstep-line {
+  width: 1px;
+  height: 20px;
+  background: rgba(201,168,76,0.2);
+  margin-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.vendor-note {
+  display: flex;
+  gap: 12px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: rgba(253,250,244,0.65);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.vendor-note strong { color: var(--gold); }
+
+/* ─── ESCROW MODAL ─── */
+.escrow-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 20px; }
+
+.escrow-step-full {
+  display: flex;
+  gap: 16px;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid;
+}
+
+.escrow-step-blue { background: rgba(27,64,120,0.3); border-color: rgba(100,150,255,0.2); }
+.escrow-step-gold { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.2); }
+.escrow-step-orange { background: rgba(193,68,14,0.1); border-color: rgba(193,68,14,0.25); }
+.escrow-step-green { background: rgba(37,211,102,0.07); border-color: rgba(37,211,102,0.2); }
+
+.escrow-step-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.escrow-step-body { flex: 1; }
+.escrow-step-num { font-size: 10px; color: rgba(253,250,244,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+.escrow-step-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 6px; }
+.escrow-step-desc { font-size: 12px; color: rgba(253,250,244,0.55); line-height: 1.6; margin-bottom: 8px; }
+.escrow-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(100,150,255,0.12);
+  color: #8ab4ff;
+  border: 1px solid rgba(100,150,255,0.25);
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.escrow-connector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 4px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 36px;
+}
+
+.escrow-conn-line { width: 1px; height: 14px; background: rgba(201,168,76,0.25); }
+.escrow-conn-icon { font-size: 16px; }
+
+.escrow-two-confirms {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(193,68,14,0.08);
+  border: 1px solid rgba(193,68,14,0.2);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.escrow-confirm-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.escrow-dispute {
+  display: flex;
+  gap: 12px;
+  background: rgba(27,43,75,0.6);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 12px;
+  color: rgba(253,250,244,0.55);
+  line-height: 1.6;
+  align-items: flex-start;
+}
+
+.escrow-dispute strong { color: white; }
+</style>
+
+<!-- script injected below -->
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAURICRAFT & STYLE — Script Principal v3.0
+   ─────────────────────────────────────────────────────────────────────────
+   1.  PRODUITS JSON  — données + Fetch API simulation
+   2.  RENDU DYNAMIQUE des cartes
+   3.  FILTRAGE & RECHERCHE temps réel (filter-chips + searchbar)
+   4.  PANIER localStorage + Checkout WhatsApp avec résumé complet
+   5.  TRADUCTION DYNAMIQUE FR ↔ AR (dir=rtl)
+   6.  IA "MauriCraft Assistant"
+       Phase A — Recommandations intelligentes (clics utilisateur)
+       Phase B — API Ready (Gemini / Claude API)
+       Phase C — Animation Scan IA sur les produits
+   7.  MODAUX (panier, vendeur, escrow, assistant IA)
+   8.  NAVIGATION & SCROLL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+'use strict';
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CONSTANTES GLOBALES
+   ───────────────────────────────────────────────────────────────────────── */
+const WA        = '221782352549';
+const CART_KEY  = 'mc_cart_v2';
+const LANG_KEY  = 'mc_lang';
+const PREFS_KEY = 'mc_prefs';         // préférences IA utilisateur
+const AI_API_KEY = '';                // ← Coller votre clé Gemini/Claude ici
+
+/* ─────────────────────────────────────────────────────────────────────────
+   1. PRODUITS JSON
+      En production → remplacer le tableau par :
+      fetch('/products.json').then(r => r.json()).then(data => init(data))
+   ───────────────────────────────────────────────────────────────────────── */
+const PRODUCTS_JSON = [
+  {
+    id: 'p-001', category: 'melahfa', badge: 'Nouveau',
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Melahfa — Voile Classique',
+    name_ar: 'مكان الملحفة — الحجاب الكلاسيكي',
+    desc_fr: 'Espace réservé. Vendeurs de Melahfa traditionnelle, rejoignez la plateforme.',
+    desc_ar: 'مكان محجوز. بائعو الملحفة التقليدية، انضموا إلى المنصة.',
+    tags: ['cérémonie','quotidien','drapé'],
+    price: null, emoji: '🥻', empty: true,
+    styleAdvice_fr: 'Ce voile s\'accorde parfaitement avec des bijoux en argent et une ceinture dorée.',
+    styleAdvice_ar: 'هذا الحجاب يتناسق تمامًا مع المجوهرات الفضية والحزام الذهبي.'
+  },
+  {
+    id: 'p-002', category: 'melahfa', badge: null,
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Melahfa — Cérémonie',
+    name_ar: 'مكان ملحفة المناسبات',
+    desc_fr: 'Tenues de cérémonie haut de gamme — espace en attente de vendeurs vérifiés.',
+    desc_ar: 'ملابس مناسبات فاخرة — مكان في انتظار البائعين الموثقين.',
+    tags: ['mariage','eid','luxe'],
+    price: null, emoji: '✨', empty: true,
+    styleAdvice_fr: 'Pour un mariage, associez cette Melahfa à une parure dorée et des sandales à talons.',
+    styleAdvice_ar: 'لحفل الزواج، اجمعي هذه الملحفة مع طقم ذهبي وصنادل بكعب عالٍ.'
+  },
+  {
+    id: 'p-003', category: 'tissu', badge: 'Premium',
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Bazin Riche',
+    name_ar: 'مكان البازان الثمين',
+    desc_fr: 'Bazin importé et local — cet espace attend votre boutique.',
+    desc_ar: 'بازان مستورد ومحلي — هذا المكان ينتظر متجرك.',
+    tags: ['tissu','couture','bazin'],
+    price: null, emoji: '🧵', empty: true,
+    styleAdvice_fr: 'Le Bazin Riche se taille parfaitement en Darra fluide pour les grandes occasions.',
+    styleAdvice_ar: 'البازان الثمين يُحاك بشكل رائع في درا منسابة للمناسبات الكبرى.'
+  },
+  {
+    id: 'p-004', category: 'tissu', badge: null,
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Tissu Gazé & Mousseline',
+    name_ar: 'مكان قماش الغازي والموسلين',
+    desc_fr: 'Tissus légers et transparents — parfaits pour l\'été mauritanien.',
+    desc_ar: 'أقمشة خفيفة وشفافة — مثالية للصيف الموريتاني.',
+    tags: ['été','léger','transparent'],
+    price: null, emoji: '🪡', empty: true,
+    styleAdvice_fr: 'La mousseline légère convient aux soirées d\'Eid — drapée sur un fond coloré.',
+    styleAdvice_ar: 'الموسلين الخفيف مناسب لأمسيات العيد — مسدل على قاعدة ملونة.'
+  },
+  {
+    id: 'p-005', category: 'bijoux', badge: '🇲🇷 Local',
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Parure Argent Mauritanien',
+    name_ar: 'مكان طقم الفضة الموريتانية',
+    desc_fr: 'Bijoux artisanaux en argent ciselé. Artisans de Kiffa et Nouakchott, rejoignez-nous.',
+    desc_ar: 'مجوهرات يدوية من الفضة المزخرفة. حرفيو كيفة ونواكشوط، انضموا إلينا.',
+    tags: ['argent','artisanat','traditionnel'],
+    price: null, emoji: '💍', empty: true,
+    styleAdvice_fr: 'L\'argent mauritanien ciselé sublime n\'importe quelle Melahfa sombre.',
+    styleAdvice_ar: 'الفضة الموريتانية المزخرفة تُضفي روعةً على أي ملحفة داكنة.'
+  },
+  {
+    id: 'p-006', category: 'bijoux', badge: null,
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Bracelets & Chevillères',
+    name_ar: 'مكان الأساور وخلاخيل الكاحل',
+    desc_fr: 'Bracelets, bagues et chevillères artisanaux. Travail traditionnel mauritanien.',
+    desc_ar: 'أساور وخواتم وخلاخيل يدوية. حرفة موريتانية تقليدية.',
+    tags: ['bracelet','anneau','traditionnel'],
+    price: null, emoji: '🪙', empty: true,
+    styleAdvice_fr: 'Portez 3 à 5 bracelets fins empilés pour un style sahélien authentique.',
+    styleAdvice_ar: 'ضعي من 3 إلى 5 أساور رفيعة متراكبة لأسلوب ساحلي أصيل.'
+  },
+  {
+    id: 'p-007', category: 'darra', badge: null,
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Darra Traditionnelle',
+    name_ar: 'مكان الدرا التقليدية',
+    desc_fr: 'Darra taillée sur mesure. Couturiers locaux, créez votre espace boutique ici.',
+    desc_ar: 'درا مفصلة حسب الطلب. خياطون محليون، أنشئوا متجركم هنا.',
+    tags: ['sur-mesure','quotidien','taillé'],
+    price: null, emoji: '👘', empty: true,
+    styleAdvice_fr: 'Une Darra bien coupée en Bazin bleu nuit s\'associe à des babouches dorées.',
+    styleAdvice_ar: 'درا مقصوصة جيداً من البازان الأزرق الداكن تُناسب البابوش الذهبي.'
+  },
+  {
+    id: 'p-008', category: 'mariage', badge: '🔒 Escrow',
+    vendor: null, vendorVerified: false,
+    name_fr: 'Emplacement Luxe 2ème Main — Cérémonie',
+    name_ar: 'مكان الفاخر المستعمل — مناسبة',
+    desc_fr: 'Tenues portées une seule fois. Le marché de la revente organisé, sécurisé, certifié.',
+    desc_ar: 'ملابس مرتداة مرة واحدة. سوق إعادة البيع منظم وآمن ومعتمد.',
+    tags: ['mariage','luxe','occasion','revente'],
+    price: null, emoji: '💒', empty: true,
+    styleAdvice_fr: 'Cette tenue de cérémonie portée une fois se renouvelle avec un nouveau drapé.',
+    styleAdvice_ar: 'هذه الزي الاحتفالي المرتدى مرة واحدة يتجدد مع تسريحة جديدة.'
+  }
+];
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ÉTAT GLOBAL
+   ───────────────────────────────────────────────────────────────────────── */
+let currentLang   = localStorage.getItem(LANG_KEY) || 'fr';
+let allProducts   = [];
+let activeFilter  = 'tout';
+let userPrefs     = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}');
+// userPrefs = { melahfa: 3, bijoux: 1, mariage: 2, … }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   2. FETCH PRODUITS
+   ───────────────────────────────────────────────────────────────────────── */
+function loadProducts() {
+  /* ── Production ──
+     return fetch('/products.json').then(r => {
+       if (!r.ok) throw new Error('HTTP ' + r.status);
+       return r.json();
+     });
+  */
+  return new Promise(resolve => setTimeout(() => resolve(PRODUCTS_JSON), 280));
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   3. RENDU CARTE PRODUIT
+   ───────────────────────────────────────────────────────────────────────── */
+function buildProductCard(p) {
+  const t      = i18n[currentLang];
+  const name   = currentLang === 'ar' ? p.name_ar   : p.name_fr;
+  const desc   = currentLang === 'ar' ? p.desc_ar   : p.desc_fr;
+  const advice = currentLang === 'ar' ? p.styleAdvice_ar : p.styleAdvice_fr;
+  const cart   = getCart();
+  const inCart = cart.some(i => i.id === p.id);
+
+  const badgeHtml = p.badge
+    ? `<span class="badge badge-new" aria-label="Badge: ${p.badge}">${p.badge}</span>` : '';
+
+  if (p.empty) {
+    return `
+    <article class="product-card product-empty" role="listitem"
+      data-category="${p.category}" data-id="${p.id}"
+      onclick="trackClick('${p.id}'); openJoinModal();"
+      aria-label="${name} — ${t.join_label}"
+      tabindex="0"
+      onkeypress="if(event.key==='Enter'){trackClick('${p.id}');openJoinModal();}">
+      <div class="empty-slot-img" aria-hidden="true">
+        <div class="empty-slot-inner">
+          <div class="empty-plus">+</div>
+          <div class="empty-slot-label">${p.emoji} ${name}</div>
+          <div class="empty-slot-sub">${t.join_label}</div>
+        </div>
+        ${advice ? `
+        <div class="ai-scan-overlay" aria-hidden="true">
+          <div class="scan-beam"></div>
+          <div class="ai-scan-tip">
+            <span class="scan-tip-icon">✨</span>
+            <span class="scan-tip-text">${advice}</span>
+          </div>
+        </div>` : ''}
+      </div>
+      <div class="product-info">
+        <p style="font-size:12px;color:rgba(253,250,244,0.45);line-height:1.55;margin-bottom:14px;">${desc}</p>
+        <div style="display:flex;justify-content:center;">
+          <div class="empty-btn-placeholder" role="button">💬 ${t.join_label}</div>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  // Carte produit réel
+  return `
+  <article class="product-card" role="listitem"
+    data-category="${p.category}" data-id="${p.id}"
+    onclick="trackClick('${p.id}')"
+    aria-label="${name}${p.price ? ', ' + p.price.toLocaleString() + ' MRU' : ''}">
+    <div class="product-img" aria-hidden="true" style="position:relative;overflow:hidden;">
+      ${p.emoji}
+      <div class="product-badges">${badgeHtml}</div>
+      ${advice ? `
+      <div class="ai-scan-overlay">
+        <div class="scan-beam"></div>
+        <div class="ai-scan-tip">
+          <span class="scan-tip-icon">✨</span>
+          <span class="scan-tip-text">${advice}</span>
+        </div>
+      </div>` : ''}
+    </div>
+    <div class="product-info">
+      <div class="product-name">${name}</div>
+      <div class="product-desc">${desc}</div>
+      <div class="product-bottom">
+        <div class="product-price">
+          <span class="price-current">${p.price ? p.price.toLocaleString() : '—'} <span class="price-currency">MRU</span></span>
+        </div>
+        <button class="add-cart-btn ${inCart ? 'in-cart' : ''}"
+          onclick="event.stopPropagation(); addToCart('${p.id}')"
+          aria-label="${inCart ? t.in_cart : t.add_cart + ' ' + name}"
+          aria-pressed="${inCart}">
+          ${inCart ? '✓ ' + t.in_cart : '🛒 ' + t.add_to_cart}
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   RENDU GRILLE
+   ───────────────────────────────────────────────────────────────────────── */
+function renderProducts(products, filter) {
+  const grid   = document.getElementById('products-grid');
+  const status = document.getElementById('products-status');
+  if (!grid) return;
+
+  const filtered = (filter && filter !== 'tout')
+    ? products.filter(p => p.category === filter)
+    : products;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    if (status) { status.style.display = 'block'; status.textContent = i18n[currentLang].no_products; }
+    return;
+  }
+  if (status) status.style.display = 'none';
+
+  grid.innerHTML = filtered.map(buildProductCard).join('');
+
+  // Attacher animations scroll
+  grid.querySelectorAll('.product-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+    scrollObserver.observe(el);
+  });
+
+  // Attacher scan IA hover
+  initScanAnimations();
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   4. FILTRAGE & RECHERCHE
+   ───────────────────────────────────────────────────────────────────────── */
+function initFilters() {
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      activeFilter = chip.dataset.category || 'tout';
+      document.querySelectorAll('.filter-chip').forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+
+      const q = document.getElementById('search-input')?.value.trim().toLowerCase() || '';
+      applyFiltersAndSearch(q, activeFilter);
+      scrollToSection('products');
+    });
+  });
+
+  // Recherche temps réel
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    let debounceTimer;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const q = searchInput.value.trim().toLowerCase();
+        applyFiltersAndSearch(q, activeFilter);
+      }, 220);
+    });
+  }
+
+  document.getElementById('search-btn')?.addEventListener('click', () => {
+    const q = document.getElementById('search-input')?.value.trim().toLowerCase() || '';
+    applyFiltersAndSearch(q, activeFilter);
+    scrollToSection('products');
+  });
+}
+
+function applyFiltersAndSearch(query, filter) {
+  let results = allProducts;
+
+  // Filtrage catégorie
+  if (filter && filter !== 'tout') {
+    results = results.filter(p => p.category === filter);
+  }
+
+  // Recherche textuelle (nom FR, nom AR, tags, description)
+  if (query) {
+    results = results.filter(p =>
+      p.name_fr.toLowerCase().includes(query)  ||
+      p.name_ar.includes(query)                ||
+      p.category.includes(query)               ||
+      (p.desc_fr  && p.desc_fr.toLowerCase().includes(query)) ||
+      (p.tags     && p.tags.some(t => t.toLowerCase().includes(query)))
+    );
+  }
+
+  renderProducts(results, null); // null = déjà filtré
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   5. PANIER — localStorage
+   ───────────────────────────────────────────────────────────────────────── */
+function getCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  catch { return []; }
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartBadge();
+}
+
+function updateCartBadge() {
+  const cart   = getCart();
+  const count  = cart.reduce((s, i) => s + (i.qty || 1), 0);
+  const badge  = document.getElementById('cart-count');
+  const btn    = document.getElementById('cart-btn');
+  if (badge) {
+    badge.textContent    = count;
+    badge.style.display  = count > 0 ? 'flex' : 'none';
+    badge.setAttribute('aria-label', `${count} article${count > 1 ? 's' : ''}`);
+  }
+  if (btn) {
+    const t = i18n[currentLang];
+    btn.setAttribute('aria-label',
+      count === 0 ? t.cart_empty_label : `${t.cart_label}: ${count} ${count > 1 ? t.items : t.item}`);
+  }
+}
+
+function addToCart(productId) {
+  const product = allProducts.find(p => p.id === productId);
+  if (!product) return;
+
+  let cart = getCart();
+  const existing = cart.find(i => i.id === productId);
+  if (existing) {
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    cart.push({
+      id:       product.id,
+      name_fr:  product.name_fr,
+      name_ar:  product.name_ar,
+      price:    product.price,
+      emoji:    product.emoji,
+      category: product.category,
+      qty:      1
+    });
+  }
+  saveCart(cart);
+  trackClick(productId);                     // nourrit les reco IA
+  showToast(i18n[currentLang].added_to_cart);
+  renderProducts(allProducts, activeFilter); // met à jour le bouton
+}
+
+function removeFromCart(productId) {
+  saveCart(getCart().filter(i => i.id !== productId));
+  renderCartModal();
+  renderProducts(allProducts, activeFilter);
+}
+
+function updateQty(productId, delta) {
+  let cart = getCart();
+  const item = cart.find(i => i.id === productId);
+  if (!item) return;
+  item.qty = Math.max(1, (item.qty || 1) + delta);
+  saveCart(cart);
+  renderCartModal();
+}
+
+function clearCart() {
+  localStorage.removeItem(CART_KEY);
+  updateCartBadge();
+  renderCartModal();
+  renderProducts(allProducts, activeFilter);
+  showToast(i18n[currentLang].cart_cleared);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CHECKOUT WHATSAPP — message précis avec articles + total + paiement
+   ───────────────────────────────────────────────────────────────────────── */
+function checkoutViaWhatsApp(paymentMethod) {
+  const cart = getCart();
+  if (cart.length === 0) { showToast(i18n[currentLang].cart_empty_toast); return; }
+
+  const t     = i18n[currentLang];
+  const total = cart.reduce((s, i) => s + ((i.price || 0) * (i.qty || 1)), 0);
+
+  const lines = cart.map(item => {
+    const name   = currentLang === 'ar' ? item.name_ar : item.name_fr;
+    const price  = item.price ? `${(item.price * (item.qty || 1)).toLocaleString()} MRU` : t.price_on_request;
+    const qty    = item.qty > 1 ? ` ×${item.qty}` : '';
+    return `• ${item.emoji} ${name}${qty} — ${price}`;
+  });
+
+  const payLabel = {
+    bankily: '📱 Bankily',
+    masrivi: '💳 Masrivi',
+    sadead:  '🏦 Sadead',
+    cash:    '💵 Paiement à la livraison'
+  }[paymentMethod] || paymentMethod;
+
+  const separator = '──────────────────';
+  const msgParts  = [
+    `🏺 *MauriCraft & Style* — Commande`,
+    separator,
+    ...lines,
+    separator,
+    `💰 *Total : ${total > 0 ? total.toLocaleString() + ' MRU' : t.price_on_request}*`,
+    `💳 *Mode de paiement : ${payLabel}*`,
+    separator,
+    `🔒 ${t.escrow_note}`,
+    `📦 ${t.delivery_note}`
+  ];
+
+  const encoded = encodeURIComponent(msgParts.join('\n'));
+  const url     = `https://wa.me/${WA}?text=${encoded}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MODAL PANIER — rendu HTML
+   ───────────────────────────────────────────────────────────────────────── */
+function renderCartModal() {
+  const cart     = getCart();
+  const list     = document.getElementById('cart-items-list');
+  const emptyMsg = document.getElementById('cart-empty-msg');
+  const footer   = document.getElementById('cart-footer');
+  const totalEl  = document.getElementById('cart-total');
+  if (!list) return;
+
+  if (cart.length === 0) {
+    list.innerHTML = '';
+    if (emptyMsg) emptyMsg.style.display = 'block';
+    if (footer)   footer.style.display   = 'none';
+    return;
+  }
+  if (emptyMsg) emptyMsg.style.display = 'none';
+  if (footer)   footer.style.display   = 'block';
+
+  list.innerHTML = cart.map(item => {
+    const name  = currentLang === 'ar' ? item.name_ar : item.name_fr;
+    const price = item.price
+      ? (item.price * (item.qty || 1)).toLocaleString() + ' MRU'
+      : i18n[currentLang].price_on_request;
+    return `
+    <div role="listitem" style="display:flex;align-items:center;gap:10px;
+      background:rgba(27,43,75,0.5);border:1px solid rgba(201,168,76,0.15);
+      border-radius:12px;padding:12px;">
+      <span style="font-size:26px;flex-shrink:0;">${item.emoji}</span>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13px;font-weight:600;color:white;
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${name}</div>
+        <div style="font-size:12px;color:rgba(201,168,76,0.8);margin-top:2px;">${price}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
+        <button onclick="updateQty('${item.id}',-1)"
+          aria-label="Diminuer quantité"
+          style="width:24px;height:24px;background:rgba(201,168,76,0.1);
+            border:1px solid rgba(201,168,76,0.25);color:var(--gold);
+            border-radius:6px;cursor:pointer;font-size:14px;line-height:1;">−</button>
+        <span style="font-size:13px;color:white;min-width:16px;text-align:center;">${item.qty||1}</span>
+        <button onclick="updateQty('${item.id}',1)"
+          aria-label="Augmenter quantité"
+          style="width:24px;height:24px;background:rgba(201,168,76,0.1);
+            border:1px solid rgba(201,168,76,0.25);color:var(--gold);
+            border-radius:6px;cursor:pointer;font-size:14px;line-height:1;">+</button>
+      </div>
+      <button onclick="removeFromCart('${item.id}')"
+        aria-label="Retirer ${name}"
+        style="width:26px;height:26px;background:rgba(193,68,14,0.15);
+          border:1px solid rgba(193,68,14,0.3);color:rgba(193,68,14,0.85);
+          border-radius:50%;cursor:pointer;font-size:13px;display:flex;
+          align-items:center;justify-content:center;flex-shrink:0;">✕</button>
+    </div>`;
+  }).join('');
+
+  const total = cart.reduce((s, i) => s + ((i.price || 0) * (i.qty || 1)), 0);
+  if (totalEl) totalEl.textContent = total > 0
+    ? total.toLocaleString() + ' MRU'
+    : i18n[currentLang].price_on_request;
+
+  // Remplir les boutons de paiement dans le footer
+  const payBtns = document.getElementById('payment-method-btns');
+  if (payBtns) {
+    const methods = [
+      { id:'bankily', label:'📱 Bankily' },
+      { id:'masrivi', label:'💳 Masrivi' },
+      { id:'sadead',  label:'🏦 Sadead'  },
+      { id:'cash',    label:'💵 Livraison' }
+    ];
+    payBtns.innerHTML = methods.map(m => `
+      <button onclick="checkoutViaWhatsApp('${m.id}')"
+        aria-label="Commander via ${m.label}"
+        style="flex:1;min-width:120px;background:rgba(27,43,75,0.7);
+          border:1px solid rgba(201,168,76,0.25);color:rgba(253,250,244,0.85);
+          padding:10px 8px;border-radius:10px;cursor:pointer;font-size:12px;
+          font-family:inherit;font-weight:600;transition:all 0.25s;
+          display:flex;flex-direction:column;align-items:center;gap:3px;"
+        onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+        onmouseout="this.style.borderColor='rgba(201,168,76,0.25)';this.style.color='rgba(253,250,244,0.85)'">
+        <span style="font-size:18px;">${m.label.split(' ')[0]}</span>
+        <span>${m.label.split(' ').slice(1).join(' ')}</span>
+      </button>`).join('');
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   6. TRADUCTION DYNAMIQUE FR ↔ AR
+   ───────────────────────────────────────────────────────────────────────── */
+const i18n = {
+  fr: {
+    /* Navigation */
+    nav_discover:'Découvrir', nav_melahfa:'Melahfa & Darra',
+    nav_tissus:'Tissus', nav_artisans:'Artisans',
+    nav_occasions:'Occasions', nav_luxe:'Occasion Luxe ✨',
+    nav_sell:'Vendre sur MauriCraft',
+    lang_switch:'عربي',
+    /* Recherche & filtres */
+    search_placeholder:'Chercher Melahfa, Tissu Bazin, Bijoux, Darra…',
+    search_btn:'🔍 Rechercher',
+    filter_all:'Tout', filter_melahfa:'Melahfa',
+    filter_tissu:'Tissu', filter_bijoux:'Bijoux',
+    filter_darra:'Darra', filter_mariage:'Mariage',
+    /* Produits */
+    products_tag:'Tendance',
+    products_title:'Produits <span>à venir</span>',
+    products_vendor_cta:'Devenir vendeur →',
+    no_products:'Aucun produit dans cette catégorie pour le moment.',
+    join_label:'Rejoindre MauriCraft',
+    add_to_cart:'Ajouter', in_cart:'Ajouté ✓',
+    add_cart:'Ajouter', item:'article', items:'articles',
+    /* Panier */
+    cart_label:'Panier', cart_empty_label:'Panier vide',
+    cart_title:'Votre Panier', cart_arabic:'سلة التسوق',
+    cart_empty:'Votre panier est vide.<br>Rejoignez un vendeur pour commencer.',
+    cart_empty_toast:'Votre panier est vide !',
+    cart_cleared:'🗑️ Panier vidé',
+    cart_total:'Total', cart_order_wa:'Commander via WhatsApp',
+    cart_clear:'🗑️ Vider le panier',
+    price_on_request:'Prix à confirmer',
+    added_to_cart:'✓ Ajouté au panier',
+    escrow_note:'Paiement bloqué par MauriCraft jusqu\'à livraison confirmée',
+    delivery_note:'Livraison géolocalisée — confirmation double (livreur + acheteur)',
+    payment_select:'Choisir votre mode de paiement :',
+    /* IA */
+    ai_title:'Assistant Style MauriCraft',
+    ai_subtitle:'Posez votre question de style',
+    ai_placeholder:'Ex : Que porter pour un mariage à Nouakchott ?',
+    ai_btn:'Demander à l\'IA ✨',
+    ai_thinking:'L\'IA réfléchit…',
+    ai_reco_title:'Recommandé pour vous',
+    ai_reco_based:'Basé sur vos préférences',
+    ai_scan_label:'Conseil de style IA',
+    /* Hero */
+    hero_badge:'Plateforme de confiance · Mauritanie',
+    hero_arabic:'الموضة الموريتانية الأصيلة',
+    hero_h1:'La Mode Mauritanienne',
+    hero_em:'Réinventée.',
+    hero_desc:'De la Tindière au monde — Artisans locaux, Tissus authentiques, Melahfa et Darra de qualité.',
+    hero_cta1:'Explorer la Collection →',
+    hero_cta2:'Nous rejoindre sur WhatsApp',
+    stat1_label:'100% Mauritanien', stat2_label:'Commission 1er mois', stat3_label:'Support WhatsApp',
+    /* Footer */
+    footer_copy:'© 2025 MauriCraft & Style — Nouakchott, Mauritanie 🇲🇷'
+  },
+  ar: {
+    nav_discover:'اكتشف', nav_melahfa:'الملحفة والدرا',
+    nav_tissus:'الأقمشة', nav_artisans:'الحرفيون',
+    nav_occasions:'المناسبات', nav_luxe:'الفاخر ✨',
+    nav_sell:'بع على موريكرافت',
+    lang_switch:'Français',
+    search_placeholder:'ابحث عن ملحفة، بازان، مجوهرات، درا…',
+    search_btn:'🔍 بحث',
+    filter_all:'الكل', filter_melahfa:'الملحفة',
+    filter_tissu:'القماش', filter_bijoux:'المجوهرات',
+    filter_darra:'الدرا', filter_mariage:'الأعراس',
+    products_tag:'الرائج',
+    products_title:'المنتجات <span>قادمة</span>',
+    products_vendor_cta:'← كن بائعاً',
+    no_products:'لا توجد منتجات في هذه الفئة حتى الآن.',
+    join_label:'انضم إلى موريكرافت',
+    add_to_cart:'أضف للسلة', in_cart:'أضيف ✓',
+    add_cart:'أضف', item:'مقال', items:'مقالات',
+    cart_label:'السلة', cart_empty_label:'السلة فارغة',
+    cart_title:'سلة التسوق', cart_arabic:'Your Cart',
+    cart_empty:'سلتك فارغة.<br>انضم إلى بائع للبدء.',
+    cart_empty_toast:'سلتك فارغة!',
+    cart_cleared:'🗑️ تم تفريغ السلة',
+    cart_total:'المجموع', cart_order_wa:'اطلب عبر واتساب',
+    cart_clear:'🗑️ إفراغ السلة',
+    price_on_request:'السعر يتم تأكيده',
+    added_to_cart:'✓ أضيف إلى السلة',
+    escrow_note:'الدفع محجوز من موريكرافت حتى تأكيد التسليم',
+    delivery_note:'توصيل بالموقع الجغرافي — تأكيد مزدوج (الموصل + المشتري)',
+    payment_select:'اختر طريقة الدفع:',
+    ai_title:'مساعد الأزياء موريكرافت',
+    ai_subtitle:'اطرح سؤالك عن الأزياء',
+    ai_placeholder:'مثال: ماذا أرتدي لحفل زواج في نواكشوط؟',
+    ai_btn:'اسأل الذكاء الاصطناعي ✨',
+    ai_thinking:'الذكاء الاصطناعي يفكر…',
+    ai_reco_title:'موصى به لك',
+    ai_reco_based:'بناءً على تفضيلاتك',
+    ai_scan_label:'نصيحة الذكاء الاصطناعي للأزياء',
+    hero_badge:'منصة موثوقة · موريتانيا',
+    hero_arabic:'The Authentic Mauritanian Fashion',
+    hero_h1:'الموضة الموريتانية',
+    hero_em:'تُعاد ابتكارها.',
+    hero_desc:'من التنديرة إلى العالم — حرفيون محليون، أقمشة أصيلة، ملحفة ودرا عالية الجودة.',
+    hero_cta1:'← استكشف المجموعة',
+    hero_cta2:'انضم عبر واتساب',
+    stat1_label:'١٠٠٪ موريتاني', stat2_label:'عمولة الشهر الأول', stat3_label:'دعم واتساب',
+    footer_copy:'© 2025 موريكرافت وستايل — نواكشوط، موريتانيا 🇲🇷'
+  }
+};
+
+function switchLanguage(lang) {
+  currentLang = lang || (currentLang === 'fr' ? 'ar' : 'fr');
+  localStorage.setItem(LANG_KEY, currentLang);
+  const t    = i18n[currentLang];
+  const root = document.getElementById('html-root');
+
+  // dir + lang
+  root.setAttribute('lang', currentLang);
+  root.setAttribute('dir',  currentLang === 'ar' ? 'rtl' : 'ltr');
+  document.body.style.fontFamily = currentLang === 'ar'
+    ? "'Tajawal', sans-serif"
+    : "'DM Sans', sans-serif";
+
+  // Traduire tous les éléments [data-i18n]
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Traduire placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Mettre à jour aria-label du bouton langue
+  const btn = document.getElementById('lang-toggle-btn');
+  if (btn) btn.setAttribute('aria-label',
+    currentLang === 'fr' ? 'Changer vers l\'Arabe' : 'التغيير إلى الفرنسية');
+
+  // Re-render produits et panier
+  renderProducts(allProducts, activeFilter);
+  renderCartModal();
+  updateCartBadge();
+}
+
+function toggleLanguage() { switchLanguage(); }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   7A. IA — TRACKING DES CLICS (Phase A — Recommandations)
+   ───────────────────────────────────────────────────────────────────────── */
+function trackClick(productId) {
+  const product = allProducts.find(p => p.id === productId);
+  if (!product) return;
+  userPrefs[product.category] = (userPrefs[product.category] || 0) + 1;
+  // Bonus pour tags
+  (product.tags || []).forEach(tag => {
+    userPrefs['tag_' + tag] = (userPrefs['tag_' + tag] || 0) + 0.5;
+  });
+  localStorage.setItem(PREFS_KEY, JSON.stringify(userPrefs));
+}
+
+function getRecommendations(count = 4) {
+  if (Object.keys(userPrefs).length === 0) return allProducts.slice(0, count);
+
+  // Score chaque produit
+  const scored = allProducts.map(p => {
+    let score  = userPrefs[p.category] || 0;
+    (p.tags || []).forEach(tag => { score += userPrefs['tag_' + tag] || 0; });
+    return { ...p, _score: score };
+  });
+
+  // Trier par score desc, puis mélanger les égaux
+  scored.sort((a, b) => b._score - a._score || Math.random() - 0.5);
+  return scored.slice(0, count);
+}
+
+function renderRecommendations() {
+  const container = document.getElementById('ai-reco-grid');
+  if (!container) return;
+  const recos = getRecommendations(4);
+  const t     = i18n[currentLang];
+
+  container.innerHTML = recos.map(p => {
+    const name = currentLang === 'ar' ? p.name_ar : p.name_fr;
+    return `
+    <div style="background:rgba(27,43,75,0.6);border:1px solid rgba(201,168,76,0.2);
+      border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:all 0.3s;"
+      onclick="trackClick('${p.id}');scrollToSection('products');"
+      onmouseover="this.style.borderColor='var(--gold)'"
+      onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"
+      aria-label="${name}">
+      <div style="font-size:36px;margin-bottom:8px;">${p.emoji}</div>
+      <div style="font-size:12px;font-weight:600;color:white;line-height:1.3;">${name}</div>
+      <div style="font-size:10px;color:rgba(201,168,76,0.7);margin-top:4px;
+        text-transform:uppercase;letter-spacing:0.06em;">${p.category}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   7B. IA — API READY (Phase B — Claude/Gemini)
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Réponses de fallback intelligentes (sans API key) */
+const AI_FALLBACK = {
+  mariage: {
+    fr: "🌟 Pour un mariage mauritanien, je recommande une Melahfa en tissu gazé doré ou ivoire, associée à une parure en argent ciselé. Évitez les couleurs trop vives — préférez l'or, le bordeaux ou le bleu nuit. Complétez avec des babouches brodées.",
+    ar: "🌟 لحفل الزواج الموريتاني، أنصح بملحفة من قماش الغازي الذهبي أو العاجي مع طقم فضة مزخرف. تجنبي الألوان الزاهية جداً — فضلي الذهبي أو العنابي أو الأزرق الداكن."
+  },
+  eid: {
+    fr: "✨ Pour l'Eid, optez pour des tons festifs : vert émeraude, bleu royal ou rose poudré. Une Darra en Bazin léger ou une Melahfa brodée aux manches convient parfaitement. Les bijoux dorés sont de mise.",
+    ar: "✨ للعيد، اختاري ألواناً احتفالية: الأخضر الزمردي أو الأزرق الملكي أو الوردي الفاتح. درا من البازان الخفيف أو ملحفة مطرزة الأكمام مناسبة تماماً. المجوهرات الذهبية ضرورية."
+  },
+  quotidien: {
+    fr: "👗 Pour le quotidien, misez sur le confort et la praticité. Une Melahfa en coton léger ou une Darra ample en Bazin respirant. Les couleurs neutres (beige, blanc cassé, bleu clair) sont polyvalentes.",
+    ar: "👗 للارتداء اليومي، ركزي على الراحة والعملية. ملحفة من القطن الخفيف أو درا فضفاضة من البازان المسامي. الألوان المحايدة متعددة الاستخدام."
+  },
+  default: {
+    fr: "🤖 Bonjour ! Je suis l'assistant style MauriCraft. Pour vous conseiller au mieux, précisez l'occasion (mariage, Eid, quotidien), votre morphologie ou la couleur souhaitée. Notre catalogue de Melahfa, Darra et bijoux mauritaniens vous attend !",
+    ar: "🤖 مرحباً! أنا مساعد الأزياء موريكرافت. لأنصحك بشكل أفضل، حددي المناسبة (زواج، عيد، يومي)، جسمك، أو اللون المطلوب. كتالوج الملحفة والدرا والمجوهرات الموريتانية في انتظارك!"
+  }
+};
+
+function getLocalAIResponse(query) {
+  const q = query.toLowerCase();
+  if (q.includes('mariage') || q.includes('wedding') || q.includes('عرس') || q.includes('زواج')) {
+    return AI_FALLBACK.mariage[currentLang];
+  }
+  if (q.includes('eid') || q.includes('عيد') || q.includes('ramadan') || q.includes('رمضان') || q.includes('tabaski')) {
+    return AI_FALLBACK.eid[currentLang];
+  }
+  if (q.includes('quotidien') || q.includes('tous les jours') || q.includes('يومي')) {
+    return AI_FALLBACK.quotidien[currentLang];
+  }
+  return AI_FALLBACK.default[currentLang];
+}
+
+async function fetchAIResponse(userQuery) {
+  /* ── Avec API Key (Gemini) ──────────────────────────────────────
+  if (AI_API_KEY) {
+    const systemPrompt = `Tu es l'assistant style de MauriCraft & Style, la marketplace mauritanienne de mode traditionnelle.
+    Tu connais parfaitement la Melahfa, la Darra, le Bazin, les bijoux en argent mauritanien.
+    Réponds toujours avec des conseils pratiques, culturellement adaptés à la Mauritanie.
+    Langue actuelle: ${currentLang === 'ar' ? 'Arabe' : 'Français'}. Réponds dans la même langue.`;
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${AI_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents:[{ parts:[{ text: systemPrompt + '\n\nQuestion: ' + userQuery }] }]
+          })
+        }
+      );
+      const data = await res.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || getLocalAIResponse(userQuery);
+    } catch(e) { return getLocalAIResponse(userQuery); }
+  }
+  ─────────────────────────────────────────────────────────────── */
+
+  // Fallback local (pas de clé API)
+  await new Promise(r => setTimeout(r, 900)); // simule latence API
+  return getLocalAIResponse(userQuery);
+}
+
+async function handleAIQuery() {
+  const input    = document.getElementById('ai-chat-input');
+  const output   = document.getElementById('ai-chat-output');
+  const btn      = document.getElementById('ai-ask-btn');
+  const t        = i18n[currentLang];
+  if (!input || !output) return;
+
+  const query = input.value.trim();
+  if (!query) { showToast(t.ai_placeholder.substring(0,40) + '…'); return; }
+
+  // UI loading
+  btn.disabled   = true;
+  btn.textContent = t.ai_thinking;
+  output.style.display  = 'block';
+  output.innerHTML      = `
+    <div style="display:flex;align-items:center;gap:10px;color:rgba(201,168,76,0.7);font-size:13px;">
+      <div class="ai-loading-dots"><span></span><span></span><span></span></div>
+      ${t.ai_thinking}
+    </div>`;
+
+  const response = await fetchAIResponse(query);
+
+  output.innerHTML = `
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+        display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🤖</div>
+      <div style="flex:1;">
+        <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">
+          MauriCraft IA</div>
+        <div style="font-size:13px;color:rgba(253,250,244,0.85);line-height:1.65;">${response}</div>
+      </div>
+    </div>`;
+
+  btn.disabled    = false;
+  btn.textContent = t.ai_btn;
+  input.value     = '';
+
+  // Mettre à jour les recommandations
+  renderRecommendations();
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   7C. ANIMATION SCAN IA
+   ───────────────────────────────────────────────────────────────────────── */
+function initScanAnimations() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const overlay = card.querySelector('.ai-scan-overlay');
+    if (!overlay) return;
+
+    card.addEventListener('mouseenter', () => {
+      overlay.classList.add('scanning');
+    });
+    card.addEventListener('mouseleave', () => {
+      overlay.classList.remove('scanning');
+    });
+
+    // Touch pour mobile
+    card.addEventListener('touchstart', () => {
+      overlay.classList.toggle('scanning');
+    }, { passive: true });
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MODAUX
+   ───────────────────────────────────────────────────────────────────────── */
+function openCartModal() {
+  renderCartModal();
+  _showModal('cart-modal');
+}
+function openJoinModal()   { _showModal('join-modal');   }
+function openVendorModal() { _showModal('vendor-modal'); }
+function openEscrowModal() { _showModal('escrow-modal'); }
+function openAIModal() {
+  _showModal('ai-modal');
+  renderRecommendations();
+  // Focus sur le champ de saisie
+  setTimeout(() => document.getElementById('ai-chat-input')?.focus(), 150);
+}
+
+function _showModal(id) {
+  closeAllModals();
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => el.querySelector('.modal-close, button, a')?.focus(), 120);
+}
+
+function closeAllModals() {
+  ['cart-modal','join-modal','vendor-modal','escrow-modal','ai-modal'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+  document.body.style.overflow = '';
+}
+
+// Backdrop click + Escape
+document.addEventListener('DOMContentLoaded', () => {
+  ['cart-modal','join-modal','vendor-modal','escrow-modal','ai-modal'].forEach(id => {
+    document.getElementById(id)?.addEventListener('click', e => {
+      if (e.target.id === id) closeAllModals();
+    });
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllModals();
+});
+
+/* ─────────────────────────────────────────────────────────────────────────
+   NAVIGATION
+   ───────────────────────────────────────────────────────────────────────── */
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 90;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   TOAST
+   ───────────────────────────────────────────────────────────────────────── */
+function showToast(message, duration = 2400) {
+  let toast = document.getElementById('mc-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'mc-toast';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    Object.assign(toast.style, {
+      position:'fixed', bottom:'100px', left:'50%',
+      transform:'translateX(-50%) translateY(20px)',
+      background:'var(--gold)', color:'var(--indigo-deep)',
+      padding:'12px 26px', borderRadius:'100px',
+      fontSize:'14px', fontWeight:'700', zIndex:'10000',
+      opacity:'0', transition:'all 0.32s cubic-bezier(.4,0,.2,1)',
+      pointerEvents:'none', whiteSpace:'nowrap',
+      boxShadow:'0 8px 30px rgba(201,168,76,0.4)'
+    });
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  clearTimeout(toast._hideTimer);
+  requestAnimationFrame(() => {
+    toast.style.opacity   = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    toast._hideTimer = setTimeout(() => {
+      toast.style.opacity   = '0';
+      toast.style.transform = 'translateX(-50%) translateY(20px)';
+    }, duration);
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SCROLL ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────── */
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity   = '1';
+      entry.target.style.transform = 'translateY(0)';
+      scrollObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.06 });
+
+function initScrollAnimations() {
+  document.querySelectorAll('.category-card, .vendor-card, .occasion-card, .payment-card').forEach((el, i) => {
+    el.style.opacity   = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.55s ease ${i * 0.08}s, transform 0.55s ease ${i * 0.08}s`;
+    scrollObserver.observe(el);
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BASSE CONSOMMATION (toggle)
+   ───────────────────────────────────────────────────────────────────────── */
+function toggleBasseConso() {
+  const sw = document.querySelector('.toggle-switch');
+  if (sw) sw.classList.toggle('on');
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   INITIALISATION
+   ───────────────────────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', async () => {
+
+  // 1. Charger les produits
+  allProducts = await loadProducts();
+
+  // 2. Traduire selon langue mémorisée
+  switchLanguage(currentLang);
+
+  // 3. Rendu produits
+  renderProducts(allProducts, activeFilter);
+
+  // 4. Filtres + recherche
+  initFilters();
+
+  // 5. Panier badge
+  updateCartBadge();
+
+  // 6. Animations scroll
+  initScrollAnimations();
+
+  // 7. Scan IA
+  initScanAnimations();
+
+  // 8. Bouton assistant IA (si présent)
+  document.getElementById('open-ai-btn')?.addEventListener('click', openAIModal);
+
+  // 9. Enter dans le champ IA
+  document.getElementById('ai-chat-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAIQuery(); }
+  });
+});
+</script>
+
+<!-- ═══════════════════════════════════════════════════════
+     CSS DYNAMIQUE : Scan IA + Loading dots + Modal IA
+     ═══════════════════════════════════════════════════════ -->
+<style>
+/* ─── SCAN IA overlay ─── */
+.ai-scan-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 5;
+}
+
+.product-card:hover .ai-scan-overlay,
+.ai-scan-overlay.scanning {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scan-beam {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #C9A84C 50%, transparent 100%);
+  box-shadow: 0 0 12px rgba(201,168,76,0.8);
+  animation: scanBeam 1.6s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scanBeam {
+  0%   { top: 0%;   opacity: 1; }
+  80%  { top: 100%; opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.ai-scan-tip {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(13,25,41,0.97) 0%, rgba(13,25,41,0.7) 100%);
+  padding: 12px 12px 14px;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.product-card:hover .ai-scan-tip,
+.ai-scan-overlay.scanning .ai-scan-tip {
+  transform: translateY(0);
+}
+
+.scan-tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.scan-tip-text {
+  font-size: 11px;
+  color: rgba(253,250,244,0.9);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Cadre scan coins */
+.ai-scan-overlay::before,
+.ai-scan-overlay::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.product-card:hover .ai-scan-overlay::before,
+.ai-scan-overlay.scanning::before {
+  top: 8px; left: 8px;
+  border-width: 2px 0 0 2px;
+  opacity: 0.8;
+}
+.product-card:hover .ai-scan-overlay::after,
+.ai-scan-overlay.scanning::after {
+  bottom: 48px; right: 8px;
+  border-width: 0 2px 2px 0;
+  opacity: 0.8;
+}
+
+/* ─── AI Loading dots ─── */
+.ai-loading-dots { display: flex; gap: 5px; align-items: center; }
+.ai-loading-dots span {
+  width: 7px; height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: dotBounce 1.3s ease-in-out infinite;
+}
+.ai-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.ai-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotBounce {
+  0%,80%,100% { transform: scale(0.6); opacity: 0.4; }
+  40%         { transform: scale(1.0); opacity: 1; }
+}
+
+/* ─── AI chat output ─── */
+#ai-chat-output {
+  background: rgba(27,43,75,0.6);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
+  display: none;
+}
+
+/* ─── RTL specifics ─── */
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .section-tag::before { margin-left: 8px; margin-right: 0; order: 1; }
+[dir="rtl"] .product-info { text-align: right; }
+[dir="rtl"] .product-vendor { flex-direction: row-reverse; }
+[dir="rtl"] .footer-top { direction: rtl; }
+[dir="rtl"] .cart-badge { left: -8px; right: auto; }
+[dir="rtl"] .hero-content { direction: rtl; }
+[dir="rtl"] .escrow-flow { flex-direction: row-reverse; }
+[dir="rtl"] .vendor-steps { direction: rtl; }
+
+/* ─── In-cart button ─── */
+.add-cart-btn.in-cart {
+  background: rgba(201,168,76,0.12);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  cursor: default;
+}
+</style>
+
+</body>
+</html>
