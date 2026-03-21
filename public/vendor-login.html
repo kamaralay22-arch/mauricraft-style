@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MauriCraft & Style — Espace Vendeur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Tajawal:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══ VARIABLES ═══ */
+:root {
+  --gold:        #C9A84C;
+  --gold-light:  #E8C97A;
+  --gold-dark:   #8B6914;
+  --gold-glow:   rgba(201,168,76,0.18);
+  --sand:        #F5EDD6;
+  --sand-deep:   #E8D5A8;
+  --indigo:      #1B2B4B;
+  --indigo-deep: #0D1929;
+  --indigo-mid:  #142035;
+  --white:       #FDFAF4;
+  --muted:       rgba(253,250,244,0.45);
+  --border:      rgba(201,168,76,0.22);
+  --card-bg:     rgba(27,43,75,0.55);
+  --input-bg:    rgba(13,25,41,0.7);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--indigo-deep);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══ FOND ANIMÉ ═══ */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: float 12s ease-in-out infinite;
+}
+.bg-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #C9A84C, transparent);
+  top: -150px; left: -100px;
+  animation-delay: 0s;
+}
+.bg-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #1B2B4B, transparent);
+  bottom: -100px; right: -100px;
+  animation-delay: -4s;
+}
+.bg-orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #8B6914, transparent);
+  top: 50%; left: 60%;
+  animation-delay: -8s;
+}
+
+@keyframes float {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(30px,-20px) scale(1.05); }
+  66%      { transform: translate(-20px,30px) scale(0.95); }
+}
+
+/* Texture grain */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* Lignes décoratives arabesque */
+.bg-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(201,168,76,0.03) 0px,
+      rgba(201,168,76,0.03) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+}
+
+/* ═══ LAYOUT PRINCIPAL ═══ */
+.page-wrap {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 40px;
+}
+
+/* ═══ LOGO / EN-TÊTE ═══ */
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+  animation: fadeDown 0.7s ease both;
+}
+
+@keyframes fadeDown {
+  from { opacity:0; transform: translateY(-20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+}
+
+.logo-texts { text-align: left; }
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  letter-spacing: 0.02em;
+}
+.logo-sub {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.auth-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.auth-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.auth-tagline {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ═══ CARTE PRINCIPALE ═══ */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  backdrop-filter: blur(24px);
+  overflow: hidden;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(201,168,76,0.08),
+    inset 0 1px 0 rgba(201,168,76,0.15);
+  animation: fadeUp 0.8s ease 0.15s both;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ═══ ONGLETS ═══ */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  padding: 18px 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 20%; right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+  color: var(--gold);
+}
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-btn:hover { color: var(--gold-light); }
+
+/* ═══ CONTENU FORMULAIRE ═══ */
+.tab-panel {
+  display: none;
+  padding: 28px 28px 32px;
+  animation: panelIn 0.4s ease both;
+}
+.tab-panel.active { display: block; }
+
+@keyframes panelIn {
+  from { opacity:0; transform: translateX(10px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+
+/* ═══ CHAMPS ═══ */
+.field {
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.field-wrap {
+  position: relative;
+}
+
+.field-icon {
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.field-input {
+  width: 100%;
+  padding: 14px 14px 14px 42px;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  transition: all 0.25s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.field-input::placeholder { color: rgba(253,250,244,0.25); }
+
+.field-input:focus {
+  border-color: var(--gold);
+  background: rgba(13,25,41,0.9);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+
+select.field-input {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+select.field-input option {
+  background: var(--indigo-deep);
+  color: var(--white);
+}
+
+/* ═══ CHAMP WHATSAPP SPÉCIAL ═══ */
+.wa-field-wrap {
+  display: flex;
+  gap: 0;
+}
+
+.wa-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  background: rgba(37,211,102,0.12);
+  border: 1px solid rgba(37,211,102,0.3);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #25D366;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.wa-input {
+  flex: 1;
+  border-radius: 0 12px 12px 0 !important;
+  padding-left: 14px !important;
+}
+
+.wa-input:focus {
+  border-color: #25D366 !important;
+  box-shadow: 0 0 0 3px rgba(37,211,102,0.1) !important;
+}
+
+/* ═══ LIGNE DEUX CHAMPS ═══ */
+.fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ═══ SÉPARATEUR ═══ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.divider-text {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ═══ BOUTON PRINCIPAL ═══ */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border: none;
+  border-radius: 12px;
+  color: var(--indigo-deep);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.45);
+}
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-primary .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-loading { display: none; }
+
+/* ═══ BOUTON WHATSAPP ═══ */
+.btn-whatsapp {
+  width: 100%;
+  padding: 14px;
+  background: rgba(37,211,102,0.12);
+  border: 1px solid rgba(37,211,102,0.3);
+  border-radius: 12px;
+  color: #25D366;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-whatsapp:hover {
+  background: rgba(37,211,102,0.2);
+  border-color: #25D366;
+  transform: translateY(-1px);
+}
+
+/* ═══ ALERTE MESSAGE ═══ */
+.form-alert {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.form-alert.error {
+  background: rgba(193,68,14,0.15);
+  border: 1px solid rgba(193,68,14,0.35);
+  color: #e87040;
+}
+.form-alert.success {
+  background: rgba(37,211,102,0.1);
+  border: 1px solid rgba(37,211,102,0.3);
+  color: #25D366;
+}
+.form-alert.show { display: block; }
+
+/* ═══ FOOTER CARTE ═══ */
+.card-footer-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.card-footer-note a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.card-footer-note a:hover { text-decoration: underline; }
+
+/* ═══ BADGES STATS ═══ */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.trust-badge {
+  text-align: center;
+}
+.trust-badge-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.trust-badge-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.trust-sep {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
+
+/* ═══ RETOUR ═══ */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 24px;
+  transition: color 0.2s;
+  animation: fadeDown 0.6s ease both;
+}
+.back-link:hover { color: var(--gold); }
+
+/* ═══ CHECKBOX CUSTOM ═══ */
+.check-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0;
+  cursor: pointer;
+}
+.check-field input[type="checkbox"] { display: none; }
+.check-box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+.check-field input:checked + .check-box {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.check-field input:checked + .check-box::after {
+  content: '✓';
+  font-size: 11px;
+  color: var(--indigo-deep);
+  font-weight: 700;
+}
+.check-label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.check-label a { color: var(--gold); text-decoration: none; }
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--indigo-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 480px) {
+  .auth-card { border-radius: 20px; }
+  .tab-panel { padding: 22px 20px 28px; }
+  .fields-row { grid-template-columns: 1fr; gap: 0; }
+  .trust-badges { gap: 14px; }
+}
+</style>
+</head>
+
+<body>
+<div class="bg-layer">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+<div class="bg-noise"></div>
+<div class="bg-lines"></div>
+
+<main class="page-wrap">
+
+  <!-- Retour au site -->
+  <a href="/" class="back-link">
+    ← Retour à MauriCraft
+  </a>
+
+  <!-- En-tête -->
+  <header class="auth-header">
+    <div class="logo-badge">
+      <div class="logo-icon">🏺</div>
+      <div class="logo-texts">
+        <span class="logo-main">MauriCraft & Style</span>
+        <span class="logo-sub">موريكرافت وستايل</span>
+      </div>
+    </div>
+    <h1 class="auth-headline">
+      Votre boutique,<br><em>votre succès.</em>
+    </h1>
+    <p class="auth-tagline">
+      Rejoignez la première marketplace de mode mauritanienne
+    </p>
+  </header>
+
+  <!-- Carte auth -->
+  <div class="auth-card">
+
+    <!-- Onglets -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" id="tab-login"
+              onclick="switchTab('login')"
+              role="tab" aria-selected="true">
+        Se connecter
+      </button>
+      <button class="tab-btn" id="tab-register"
+              onclick="switchTab('register')"
+              role="tab" aria-selected="false">
+        S'inscrire
+      </button>
+    </div>
+
+    <!-- ── PANNEAU CONNEXION ── -->
+    <div class="tab-panel active" id="panel-login" role="tabpanel">
+
+      <div class="form-alert" id="login-alert"></div>
+
+      <!-- WhatsApp direct -->
+      <a href="https://wa.me/22249683065?text=Bonjour%2C%20je%20veux%20me%20connecter%20à%20mon%20espace%20vendeur%20MauriCraft"
+         target="_blank" class="btn-whatsapp">
+        💬 Connexion rapide via WhatsApp
+      </a>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-text">ou entrez votre numéro</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <form id="login-form" onsubmit="handleLogin(event)" novalidate>
+
+        <div class="field">
+          <label class="field-label" for="login-phone">Numéro WhatsApp</label>
+          <div class="wa-field-wrap">
+            <div class="wa-prefix">📱 +222</div>
+            <input type="tel" id="login-phone" class="field-input wa-input"
+                   placeholder="XX XX XX XX"
+                   maxlength="8" inputmode="numeric"
+                   autocomplete="tel">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" id="login-btn">
+          <span class="btn-inner">
+            <span class="btn-text">Accéder à mon espace →</span>
+            <span class="btn-loading">⏳ Connexion…</span>
+          </span>
+        </button>
+
+      </form>
+
+      <p class="card-footer-note">
+        Pas encore vendeur ?
+        <a href="#" onclick="switchTab('register');return false;">Créer ma boutique gratuitement</a>
+      </p>
+    </div>
+
+    <!-- ── PANNEAU INSCRIPTION ── -->
+    <div class="tab-panel" id="panel-register" role="tabpanel">
+
+      <div class="form-alert" id="register-alert"></div>
+
+      <form id="register-form" onsubmit="handleRegister(event)" novalidate>
+
+        <div class="fields-row">
+          <div class="field">
+            <label class="field-label" for="reg-firstname">Prénom</label>
+            <div class="field-wrap">
+              <span class="field-icon">👤</span>
+              <input type="text" id="reg-firstname" class="field-input"
+                     placeholder="Fatima" autocomplete="given-name">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="reg-lastname">Nom</label>
+            <div class="field-wrap">
+              <span class="field-icon">👤</span>
+              <input type="text" id="reg-lastname" class="field-input"
+                     placeholder="Mint Ahmed" autocomplete="family-name">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="reg-shop">Nom de votre boutique</label>
+          <div class="field-wrap">
+            <span class="field-icon">🏪</span>
+            <input type="text" id="reg-shop" class="field-input"
+                   placeholder="Boutique Fatima — Melahfa">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field">
+  <label class="field-label" for="reg-email">Adresse Email</label>
+  <div class="field-wrap">
+    <span class="field-icon">📧</span>
+    <input type="email" id="reg-email" class="field-input"
+           placeholder="fatima@exemple.com" autocomplete="email">
+  </div>
+</div>
+          <label class="field-label" 
+          for="reg-phone">Numéro WhatsApp</label>
+          <div class="wa-field-wrap">
+            <div class="wa-prefix">📱 +222</div>
+            <input type="tel" id="reg-phone" class="field-input wa-input"
+                   placeholder="XX XX XX XX"
+                   maxlength="8" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="fields-row">
+          <div class="field">
+            <label class="field-label" for="reg-city">Ville</label>
+            <div class="field-wrap">
+              <span class="field-icon">📍</span>
+              <select id="reg-city" class="field-input">
+                <option value="">Choisir…</option>
+                <option>Nouakchott</option>
+                <option>Nouadhibou</option>
+                <option>Rosso</option>
+                <option>Kiffa</option>
+                <option>Zouerate</option>
+                <option>Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="reg-category">Catégorie</label>
+            <div class="field-wrap">
+              <span class="field-icon">🏺</span>
+              <select id="reg-category" class="field-input">
+                <option value="">Choisir…</option>
+                <option>Melahfa & Voiles</option>
+                <option>Darra & Boubou</option>
+                <option>Tissus Bazin</option>
+                <option>Bijoux Artisanaux</option>
+                <option>Accessoires</option>
+                <option>Mixte</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <label class="check-field" for="reg-terms">
+          <input type="checkbox" id="reg-terms">
+          <span class="check-box"></span>
+          <span class="check-label">
+            J'accepte les <a href="#" onclick="return false;">conditions d'utilisation</a>
+            et la <a href="#" onclick="return false;">politique de vente</a> de MauriCraft
+          </span>
+        </label>
+
+        <button type="submit" class="btn-primary" id="register-btn">
+          <span class="btn-inner">
+            <span class="btn-text">Créer ma boutique gratuitement 🎁</span>
+            <span class="btn-loading">⏳ Envoi en cours…</span>
+          </span>
+        </button>
+
+      </form>
+
+      <p class="card-footer-note">
+        Déjà vendeur ?
+        <a href="#" onclick="switchTab('login');return false;">Me connecter</a>
+        <br><br>
+        <span style="font-size:11px;">
+          🎁 1er mois sans commission · Validation sous 24–48h
+        </span>
+      </p>
+    </div>
+
+  </div><!-- fin auth-card -->
+
+  <!-- Badges de confiance -->
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <span class="trust-badge-num">0%</span>
+      <span class="trust-badge-label">Commission<br>1er mois</span>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-badge">
+      <span class="trust-badge-num">24h</span>
+      <span class="trust-badge-label">Validation<br>boutique</span>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-badge">
+      <span class="trust-badge-num">100%</span>
+      <span class="trust-badge-label">Paiement<br>sécurisé</span>
+    </div>
+  </div>
+
+</main>
+
+<script>
+/* ══════════════════════════════════════
+   GESTION DES ONGLETS
+══════════════════════════════════════ */
+function switchTab(tab) {
+  // Onglets
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).setAttribute('aria-selected', 'true');
+  document.getElementById('panel-' + tab).classList.add('active');
+
+  // Réinitialiser les alertes
+  hideAlert('login-alert');
+  hideAlert('register-alert');
+}
+
+/* ══════════════════════════════════════
+   CONNEXION
+══════════════════════════════════════ */
+async function handleLogin(e) {
+  e.preventDefault();
+  hideAlert('login-alert');
+
+  const phone = document.getElementById('login-phone').value.trim();
+
+  if (!phone || phone.length < 8) {
+    showAlert('login-alert', 'error', '⚠️ Entrez votre numéro WhatsApp (8 chiffres).');
+    return;
+  }
+
+  setLoading('login-btn', true);
+
+  try {
+    const res = await fetch('/api/vendor/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ whatsapp: '222' + phone })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      showAlert('login-alert', 'error', '❌ ' + (data.error || 'Erreur de connexion.'));
+      return;
+    }
+
+    // Sauvegarder le token
+    localStorage.setItem('mc_vendor_token', data.token);
+    localStorage.setItem('mc_vendor_name', data.vendor?.shopName || 'Ma Boutique');
+
+    showAlert('login-alert', 'success', '✅ Connexion réussie ! Redirection…');
+    setTimeout(() => { window.location.href = '/vendor'; }, 1200);
+
+  } catch (err) {
+    showAlert('login-alert', 'error', '❌ Impossible de contacter le serveur. Vérifiez votre connexion.');
+  } finally {
+    setLoading('login-btn', false);
+  }
+}
+
+/* ══════════════════════════════════════
+   INSCRIPTION
+══════════════════════════════════════ */
+async function handleRegister(e) {
+  e.preventDefault();
+  hideAlert('register-alert');
+
+  const firstName = document.getElementById('reg-firstname').value.trim();
+  const lastName  = document.getElementById('reg-lastname').value.trim();
+  const shopName  = document.getElementById('reg-shop').value.trim();
+  const phone     = document.getElementById('reg-phone').value.trim();
+  const city      = document.getElementById('reg-city').value;
+  const category  = document.getElementById('reg-category').value;
+  const terms     = document.getElementById('reg-terms').checked;
+
+  // Validations
+  if (!firstName || !lastName) {
+    showAlert('register-alert', 'error', '⚠️ Entrez votre prénom et nom.');
+    return;
+  }
+  if (!shopName) {
+    showAlert('register-alert', 'error', '⚠️ Donnez un nom à votre boutique.');
+    return;
+  }
+  if (!phone || phone.length < 8) {
+    showAlert('register-alert', 'error', '⚠️ Entrez votre numéro WhatsApp (8 chiffres).');
+    return;
+  }
+  if (!city) {
+    showAlert('register-alert', 'error', '⚠️ Sélectionnez votre ville.');
+    return;
+  }
+  if (!terms) {
+    showAlert('register-alert', 'error', '⚠️ Acceptez les conditions d\'utilisation.');
+    return;
+  }
+
+  setLoading('register-btn', true);
+
+  try {
+    const res = await fetch('/api/vendors', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:      firstName + ' ' + lastName,
+        shopName:  shopName,
+        whatsapp:  '222' + phone,
+        city:      city,
+email:     document.getElementById('reg-email').value.trim(),
+        category:  category,
+        status:    'pending',
+        verified:  false
+      })
+    });
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error);
+
+    showAlert('register-alert', 'success',
+      '🎉 Boutique créée ! Notre équipe valide votre inscription sous 24–48h. Vous recevrez un message WhatsApp.');
+
+    // Réinitialiser le formulaire
+    document.getElementById('register-form').reset();
+if (data.waVendeurUrl) setTimeout(() => window.open(data.waVendeurUrl, '_blank'), 1500);
+if (data.waAdminUrl)   setTimeout(() => window.open(data.waAdminUrl,   '_blank'), 2000);
+
+  } catch (err) {
+    showAlert('register-alert', 'error', '❌ Erreur lors de l\'inscription. Réessayez ou contactez le support.');
+  } finally {
+    setLoading('register-btn', false);
+  }
+}
+
+/* ══════════════════════════════════════
+   UTILITAIRES
+══════════════════════════════════════ */
+function showAlert(id, type, msg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.className = 'form-alert ' + type + ' show';
+  el.textContent = msg;
+}
+
+function hideAlert(id) {
+  const el = document.getElementById(id);
+  if (el) el.className = 'form-alert';
+}
+
+function setLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const txt  = btn.querySelector('.btn-text');
+  const spin = btn.querySelector('.btn-loading');
+  btn.disabled = loading;
+  if (txt)  txt.style.display  = loading ? 'none' : 'inline';
+  if (spin) spin.style.display = loading ? 'inline' : 'none';
+}
+
+/* Empêcher les lettres dans les champs téléphone */
+document.querySelectorAll('input[inputmode="numeric"]').forEach(input => {
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/\D/g, '');
+  });
+});
+
+/* Si token déjà présent → redirection directe */
+if (localStorage.getItem('mc_vendor_token')) {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.get('logout')) {
+    window.location.href = '/vendor';
+  }
+}
+</script>
+</body>
+</html>

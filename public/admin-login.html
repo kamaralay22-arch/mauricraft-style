@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MauriCraft — Accès Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-dark:#8B6914;--indigo:#1B2B4B;--indigo-deep:#0D1929;--white:#FDFAF4;--border:rgba(201,168,76,0.22);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--indigo-deep);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(201,168,76,0.08),transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(27,43,75,0.4),transparent 60%);pointer-events:none;}
+.card{background:rgba(27,43,75,0.55);border:1px solid var(--border);border-radius:24px;backdrop-filter:blur(20px);padding:40px 36px;width:100%;max-width:380px;box-shadow:0 40px 80px rgba(0,0,0,0.4);}
+.logo{text-align:center;margin-bottom:32px;}
+.logo-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 14px;box-shadow:0 8px 30px rgba(201,168,76,0.3);}
+.logo-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);}
+.logo-sub{font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+.field{margin-bottom:20px;}
+.field label{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.field input{width:100%;padding:14px 16px;background:rgba(13,25,41,0.7);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:all .25s;}
+.field input::placeholder{color:rgba(253,250,244,0.25);}
+.field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.12);}
+.btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:12px;color:var(--indigo-deep);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 8px 30px rgba(201,168,76,0.3);margin-top:4px;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,0.45);}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.alert{display:none;padding:12px 14px;border-radius:10px;font-size:13px;margin-bottom:16px;line-height:1.5;}
+.alert.error{background:rgba(193,68,14,0.15);border:1px solid rgba(193,68,14,0.35);color:#e87040;display:block;}
+.alert.success{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#25D366;display:block;}
+.footer-note{text-align:center;margin-top:20px;font-size:12px;color:rgba(253,250,244,0.3);}
+.shield{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:rgba(253,250,244,0.35);margin-top:24px;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <div class="logo-icon">🏺</div>
+    <div class="logo-title">MauriCraft & Style</div>
+    <div class="logo-sub">Panneau Administrateur</div>
+  </div>
+
+  <div class="alert" id="alert"></div>
+
+  <form id="login-form" onsubmit="handleLogin(event)" novalidate>
+    <div class="field">
+      <label for="password">Mot de passe Admin</label>
+      <input type="password" id="password" placeholder="••••••••••••" autocomplete="current-password">
+    </div>
+    <button type="submit" class="btn" id="btn">
+      Accéder au panneau →
+    </button>
+  </form>
+
+  <div class="shield">🔒 Accès sécurisé — JWT chiffré</div>
+  <p class="footer-note"><a href="/" style="color:rgba(201,168,76,0.5);text-decoration:none;">← Retour au site</a></p>
+</div>
+
+<script>
+async function handleLogin(e) {
+  e.preventDefault();
+  const password = document.getElementById('password').value.trim();
+  const btn      = document.getElementById('btn');
+  const alert    = document.getElementById('alert');
+
+  alert.className = 'alert';
+  alert.textContent = '';
+
+  if (!password) {
+    alert.className = 'alert error';
+    alert.textContent = '⚠️ Entrez votre mot de passe.';
+    return;
+  }
+
+  btn.disabled    = true;
+  btn.textContent = '⏳ Connexion…';
+
+  try {
+    const res  = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert.className   = 'alert error';
+      alert.textContent = '❌ ' + (data.error || 'Erreur de connexion.');
+      return;
+    }
+
+    // Stocker le JWT
+    localStorage.setItem('mc_admin_token', data.token);
+    localStorage.setItem('mc_admin_login', Date.now());
+
+    alert.className   = 'alert success';
+    alert.textContent = '✅ Connexion réussie ! Redirection…';
+
+    setTimeout(() => { window.location.href = '/admin'; }, 800);
+
+  } catch (err) {
+    alert.className   = 'alert error';
+    alert.textContent = '❌ Serveur inaccessible. Vérifiez votre connexion.';
+  } finally {
+    btn.disabled    = false;
+    btn.textContent = 'Accéder au panneau →';
+  }
+}
+
+// Si déjà connecté → rediriger directement
+if (localStorage.getItem('mc_admin_token')) {
+  window.location.href = '/admin';
+}
+</script>
+</body>
+</html>

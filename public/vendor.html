@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MauriCraft — Espace Vendeur</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#C9A84C; --gold-light:#E8C97A; --gold-bg:rgba(201,168,76,0.08);
+  --gold-border:rgba(201,168,76,0.22); --indigo:#0D1929; --indigo2:#111e30;
+  --card:#111e30; --border:rgba(201,168,76,0.18); --text:#FDFAF4;
+  --muted:rgba(253,250,244,0.45); --green:#25D366; --red:#e87040;
+  --orange:#f59e0b; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--indigo);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+/* ── AUTH SCREEN ── */
+#auth-screen{min-height:100vh;display:flex;flex-direction:column;}
+.auth-topbar{padding:16px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(201,168,76,0.1);background:rgba(13,25,41,0.98);}
+.auth-logo{font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;}
+.auth-hero{padding:36px 24px 28px;text-align:center;background:linear-gradient(170deg,#0D1929 0%,#162436 100%);border-bottom:1px solid rgba(201,168,76,0.1);}
+.auth-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px;}
+.auth-hero h1{font-size:24px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3;}
+.auth-hero p{font-size:13px;color:var(--muted);line-height:1.65;max-width:300px;margin:0 auto;}
+.auth-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 16px 48px;}
+.auth-card{width:100%;max-width:420px;background:var(--indigo2);border:1px solid var(--gold-border);border-radius:20px;overflow:hidden;}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(201,168,76,0.12);}
+.auth-tab{padding:15px 12px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:"DM Sans",sans-serif;transition:all .2s;}
+.auth-tab.active{color:var(--gold);border-bottom-color:var(--gold);background:rgba(201,168,76,0.04);}
+.auth-panel{display:none;padding:24px 22px 28px;}
+.auth-panel.active{display:flex;flex-direction:column;gap:16px;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;}
+.field-input{background:rgba(13,25,41,0.75);border:1px solid rgba(201,168,76,0.2);border-radius:12px;color:var(--text);padding:13px 16px;font-size:15px;font-family:"DM Sans",sans-serif;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.field-input:focus{border-color:rgba(201,168,76,.65);}
+.field-input::placeholder{color:rgba(253,250,244,.2);}
+.field-select{background:rgba(13,25,41,.75);border:1px solid rgba(201,168,76,.2);border-radius:12px;color:var(--text);padding:13px 16px;font-size:15px;font-family:"DM Sans",sans-serif;width:100%;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;}
+.field-select option{background:#1a2840;}
+.cats-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.cat-btn{border:1px solid rgba(201,168,76,.2);border-radius:11px;padding:11px 10px;font-size:13px;color:var(--muted);cursor:pointer;text-align:center;background:none;font-family:"DM Sans",sans-serif;transition:all .2s;}
+.cat-btn.selected{border-color:var(--gold);background:rgba(201,168,76,.1);color:var(--gold);font-weight:600;}
+.btn-gold-full{width:100%;padding:15px;border-radius:13px;border:none;font-size:15px;font-weight:700;font-family:"DM Sans",sans-serif;cursor:pointer;background:var(--gold);color:var(--indigo);transition:all .2s;}
+.btn-gold-full:hover{background:var(--gold-light);}
+.btn-gold-full:disabled{opacity:.55;cursor:not-allowed;}
+.btn-wa{width:100%;padding:13px;border-radius:13px;border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.07);color:var(--green);font-size:14px;font-weight:600;font-family:"DM Sans",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;}
+.btn-wa:hover{background:rgba(37,211,102,.13);}
+.auth-sep{display:flex;align-items:center;gap:12px;}
+.auth-sep-line{flex:1;height:1px;background:rgba(201,168,76,.1);}
+.auth-sep-text{font-size:11px;color:rgba(253,250,244,.25);text-transform:uppercase;letter-spacing:.06em;}
+.reg-steps{display:flex;margin-bottom:4px;}
+.reg-step{flex:1;text-align:center;padding:7px 4px;font-size:11px;color:rgba(253,250,244,.3);border-bottom:2px solid rgba(201,168,76,.1);transition:all .2s;font-weight:500;}
+.reg-step.done{color:var(--gold);border-bottom-color:var(--gold);}
+.auth-alert{padding:11px 15px;border-radius:10px;font-size:13px;line-height:1.5;display:none;}
+.auth-alert.error{background:rgba(232,112,64,.1);border:1px solid rgba(232,112,64,.25);color:var(--red);}
+.auth-link{font-size:12px;color:var(--muted);text-align:center;}
+.auth-link a{color:var(--gold);text-decoration:none;cursor:pointer;}
+.reg-success{display:none;flex-direction:column;align-items:center;padding:36px 22px;text-align:center;gap:14px;}
+.reg-success-icon{width:60px;height:60px;border-radius:50%;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);display:flex;align-items:center;justify-content:center;font-size:26px;}
+.reg-success h2{font-size:19px;font-weight:700;color:var(--text);}
+.reg-success p{font-size:13px;color:var(--muted);line-height:1.65;}
+.auth-footer{margin-top:20px;text-align:center;font-size:11px;color:rgba(253,250,244,.2);line-height:1.6;max-width:320px;}
+
+/* ── DASHBOARD ── */
+#dashboard{display:none;flex-direction:column;min-height:100vh;}
+.header{background:rgba(13,25,41,.97);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.header-logo{font-size:17px;font-weight:700;color:var(--gold);text-decoration:none;}
+.header-right{display:flex;align-items:center;gap:12px;}
+.vendor-name{font-size:13px;color:var(--muted);}
+.btn-logout{background:none;border:1px solid rgba(232,112,64,.3);color:var(--red);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-family:"DM Sans",sans-serif;}
+.layout{display:flex;min-height:calc(100vh - 60px);}
+.sidebar{width:220px;flex-shrink:0;background:rgba(17,30,48,.8);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:12px 20px;font-size:14px;color:var(--muted);cursor:pointer;transition:all .2s;border-left:3px solid transparent;}
+.nav-item:hover{color:var(--text);background:var(--gold-bg);}
+.nav-item.active{color:var(--gold);background:var(--gold-bg);border-left-color:var(--gold);}
+.nav-icon{font-size:17px;width:22px;text-align:center;}
+.nav-wa{margin-top:auto;padding:16px 20px 0;}
+.nav-wa a{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--green);text-decoration:none;}
+.main{flex:1;padding:32px;overflow-y:auto;max-width:960px;}
+.section{display:none;}
+.section.active{display:block;}
+.page-title{font-size:22px;font-weight:700;margin-bottom:6px;}
+.page-sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+.stat-value{font-size:28px;font-weight:700;color:var(--gold);}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+.alert{padding:12px 16px;border-radius:10px;font-size:13px;margin-bottom:20px;display:none;}
+.alert-error{background:rgba(232,112,64,.1);border:1px solid rgba(232,112,64,.25);color:var(--red);}
+.alert-success{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);color:var(--green);}
+.alert-info{background:var(--gold-bg);border:1px solid var(--border);color:var(--gold);}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+.form-group.full{grid-column:1/-1;}
+label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
+input[type=text],input[type=number],input[type=tel],select,textarea{background:rgba(13,25,41,.8);border:1px solid rgba(201,168,76,.2);color:var(--text);padding:11px 14px;border-radius:10px;font-size:14px;font-family:"DM Sans",sans-serif;outline:none;transition:border-color .2s;width:100%;}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+select option{background:#1a2840;}
+textarea{resize:vertical;min-height:80px;}
+.upload-zone{border:2px dashed rgba(201,168,76,.25);border-radius:var(--radius);padding:32px;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.upload-zone:hover{border-color:var(--gold);background:var(--gold-bg);}
+.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upload-icon{font-size:36px;margin-bottom:10px;}
+.upload-text{font-size:13px;color:var(--muted);}
+.upload-preview{max-width:200px;max-height:180px;border-radius:10px;margin-top:12px;object-fit:cover;display:none;}
+.btn{padding:11px 22px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .25s;font-family:"DM Sans",sans-serif;display:inline-flex;align-items:center;gap:8px;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#8B6914);color:#0D1929;}
+.btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--text);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.btn-danger{background:rgba(232,112,64,.12);border:1px solid rgba(232,112,64,.3);color:var(--red);}
+.btn-sm{padding:7px 14px;font-size:12px;}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.products-list{display:flex;flex-direction:column;gap:12px;}
+.product-row{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:border-color .2s;}
+.product-row:hover{border-color:rgba(201,168,76,.35);}
+.product-emoji{font-size:32px;flex-shrink:0;width:44px;text-align:center;}
+.product-img-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;}
+.product-info{flex:1;min-width:0;}
+.product-name-row{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.product-meta{font-size:12px;color:var(--muted);margin-top:3px;}
+.product-actions{display:flex;gap:8px;flex-shrink:0;}
+.status-pill{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;}
+.status-pending{background:rgba(245,158,11,.12);color:var(--orange);border:1px solid rgba(245,158,11,.25);}
+.status-approved{background:rgba(37,211,102,.1);color:var(--green);border:1px solid rgba(37,211,102,.2);}
+.empty-state{text-align:center;padding:56px 24px;}
+.empty-icon{font-size:48px;margin-bottom:14px;}
+.empty-title{font-size:17px;font-weight:600;margin-bottom:8px;}
+.empty-text{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.shop-field{padding:12px 14px;background:rgba(13,25,41,.5);border-radius:10px;font-size:14px;}
+@media(max-width:640px){
+  .sidebar{display:none;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .main{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════ AUTH ════════════════════════════ -->
+<div id="auth-screen">
+  <div class="auth-topbar">
+    <a href="/" class="auth-logo">🏺 MauriCraft &amp; Style</a>
+  </div>
+  <div class="auth-hero">
+    <div class="auth-badge">Espace Vendeur</div>
+    <h1>Vendez votre mode<br>mauritanienne</h1>
+    <p>Melahfa, Darra, Bijoux, Bazin — rejoignez la première marketplace mauritanienne.</p>
+  </div>
+  <div class="auth-body">
+    <div class="auth-card">
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Se connecter</button>
+        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Créer ma boutique</button>
+      </div>
+
+      <!-- CONNEXION -->
+      <div class="auth-panel active" id="panel-login">
+        <div class="auth-alert error" id="login-alert"></div>
+        <div class="field">
+          <div class="field-label">Votre numéro WhatsApp</div>
+          <div style="display:flex;gap:8px;">
+            <select id="login-indicatif" style="background:rgba(13,25,41,0.75);border:1px solid rgba(201,168,76,0.2);border-radius:12px;color:#FDFAF4;padding:13px 10px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:130px;flex-shrink:0;cursor:pointer;">
+              <option value="222">🇲🇷 +222</option>
+              <option value="221">🇸🇳 +221</option>
+              <option value="33">🇫🇷 +33</option>
+              <option value="223">🇲🇱 +223</option>
+              <option value="212">🇲🇦 +212</option>
+              <option value="213">🇩🇿 +213</option>
+              <option value="216">🇹🇳 +216</option>
+              <option value="224">🇬🇳 +224</option>
+              <option value="225">🇨🇮 +225</option>
+              <option value="226">🇧🇫 +226</option>
+              <option value="227">🇳🇪 +227</option>
+              <option value="228">🇹🇬 +228</option>
+              <option value="229">🇧🇯 +229</option>
+              <option value="234">🇳🇬 +234</option>
+              <option value="1">🇺🇸 +1</option>
+              <option value="44">🇬🇧 +44</option>
+              <option value="49">🇩🇪 +49</option>
+              <option value="971">🇦🇪 +971</option>
+              <option value="966">🇸🇦 +966</option>
+            </select>
+            <input class="field-input" type="tel" id="login-wa" placeholder="Ex: 49123456" style="flex:1;" onkeypress="if(event.key==='Enter') doLogin()">
+          </div>
+        </div>
+        <button class="btn-gold-full" id="login-btn" onclick="doLogin()">Accéder à mon espace →</button>
+        <div class="auth-sep">
+          <div class="auth-sep-line"></div>
+          <span class="auth-sep-text">ou</span>
+          <div class="auth-sep-line"></div>
+        </div>
+        <button class="btn-wa" onclick="loginViaWA()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.849L.057 23.457a.75.75 0 00.921.921l5.608-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.731 9.731 0 01-4.964-1.355l-.356-.211-3.69.966.982-3.596-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Contacter l'admin pour accès
+        </button>
+        <p class="auth-link">Pas encore inscrit ? <a onclick="switchTab('register')">Créez votre boutique gratuitement</a></p>
+      </div>
+
+      <!-- INSCRIPTION -->
+      <div class="auth-panel" id="panel-register">
+        <div class="reg-steps">
+          <div class="reg-step done" id="rstep1">1 · Identité</div>
+          <div class="reg-step" id="rstep2">2 · Boutique</div>
+          <div class="reg-step" id="rstep3">3 · Envoi</div>
+        </div>
+        <div class="auth-alert error" id="reg-alert"></div>
+
+        <!-- Étape 1 -->
+        <div id="reg-p1" style="display:flex;flex-direction:column;gap:14px;">
+          <div class="field">
+            <div class="field-label">Votre prénom et nom *</div>
+            <input class="field-input" type="text" id="reg-name" placeholder="Ex: Fatima Mint Ahmed">
+          </div>
+          <div class="field">
+            <div class="field-label">Votre numéro WhatsApp *</div>
+            <div style="display:flex;gap:8px;">
+              <select id="reg-indicatif" style="background:rgba(13,25,41,0.75);border:1px solid rgba(201,168,76,0.2);border-radius:12px;color:#FDFAF4;padding:13px 10px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:140px;flex-shrink:0;-webkit-appearance:none;cursor:pointer;">
+                <option value="222">🇲🇷 +222 MR</option>
+                <option value="221">🇸🇳 +221 SN</option>
+                <option value="223">🇲🇱 +223 ML</option>
+                <option value="212">🇲🇦 +212 MA</option>
+                <option value="213">🇩🇿 +213 DZ</option>
+                <option value="216">🇹🇳 +216 TN</option>
+                <option value="218">🇱🇾 +218 LY</option>
+                <option value="20">🇪🇬 +20 EG</option>
+                <option value="224">🇬🇳 +224 GN</option>
+                <option value="225">🇨🇮 +225 CI</option>
+                <option value="226">🇧🇫 +226 BF</option>
+                <option value="227">🇳🇪 +227 NE</option>
+                <option value="228">🇹🇬 +228 TG</option>
+                <option value="229">🇧🇯 +229 BJ</option>
+                <option value="230">🇲🇺 +230 MU</option>
+                <option value="231">🇱🇷 +231 LR</option>
+                <option value="232">🇸🇱 +232 SL</option>
+                <option value="233">🇬🇭 +233 GH</option>
+                <option value="234">🇳🇬 +234 NG</option>
+                <option value="235">🇹🇩 +235 TD</option>
+                <option value="236">🇨🇫 +236 CF</option>
+                <option value="237">🇨🇲 +237 CM</option>
+                <option value="238">🇨🇻 +238 CV</option>
+                <option value="239">🇸🇹 +239 ST</option>
+                <option value="240">🇬🇶 +240 GQ</option>
+                <option value="241">🇬🇦 +241 GA</option>
+                <option value="242">🇨🇬 +242 CG</option>
+                <option value="243">🇨🇩 +243 CD</option>
+                <option value="244">🇦🇴 +244 AO</option>
+                <option value="245">🇬🇼 +245 GW</option>
+                <option value="246">🇮🇴 +246 IO</option>
+                <option value="248">🇸🇨 +248 SC</option>
+                <option value="249">🇸🇩 +249 SD</option>
+                <option value="250">🇷🇼 +250 RW</option>
+                <option value="251">🇪🇹 +251 ET</option>
+                <option value="252">🇸🇴 +252 SO</option>
+                <option value="253">🇩🇯 +253 DJ</option>
+                <option value="254">🇰🇪 +254 KE</option>
+                <option value="255">🇹🇿 +255 TZ</option>
+                <option value="256">🇺🇬 +256 UG</option>
+                <option value="257">🇧🇮 +257 BI</option>
+                <option value="258">🇲🇿 +258 MZ</option>
+                <option value="260">🇿🇲 +260 ZM</option>
+                <option value="261">🇲🇬 +261 MG</option>
+                <option value="262">🇷🇪 +262 RE</option>
+                <option value="263">🇿🇼 +263 ZW</option>
+                <option value="264">🇳🇦 +264 NA</option>
+                <option value="265">🇲🇼 +265 MW</option>
+                <option value="266">🇱🇸 +266 LS</option>
+                <option value="267">🇧🇼 +267 BW</option>
+                <option value="268">🇸🇿 +268 SZ</option>
+                <option value="269">🇰🇲 +269 KM</option>
+                <option value="27">🇿🇦 +27 ZA</option>
+                <option value="290">🇸🇭 +290 SH</option>
+                <option value="291">🇪🇷 +291 ER</option>
+                <option value="297">🇦🇼 +297 AW</option>
+                <option value="33">🇫🇷 +33 FR</option>
+                <option value="34">🇪🇸 +34 ES</option>
+                <option value="351">🇵🇹 +351 PT</option>
+                <option value="352">🇱🇺 +352 LU</option>
+                <option value="353">🇮🇪 +353 IE</option>
+                <option value="39">🇮🇹 +39 IT</option>
+                <option value="32">🇧🇪 +32 BE</option>
+                <option value="31">🇳🇱 +31 NL</option>
+                <option value="41">🇨🇭 +41 CH</option>
+                <option value="44">🇬🇧 +44 GB</option>
+                <option value="49">🇩🇪 +49 DE</option>
+                <option value="1">🇺🇸 +1 US</option>
+                <option value="1-CA">🇨🇦 +1 CA</option>
+                <option value="52">🇲🇽 +52 MX</option>
+                <option value="55">🇧🇷 +55 BR</option>
+                <option value="57">🇨🇴 +57 CO</option>
+                <option value="58">🇻🇪 +58 VE</option>
+                <option value="54">🇦🇷 +54 AR</option>
+                <option value="56">🇨🇱 +56 CL</option>
+                <option value="51">🇵🇪 +51 PE</option>
+                <option value="86">🇨🇳 +86 CN</option>
+                <option value="81">🇯🇵 +81 JP</option>
+                <option value="82">🇰🇷 +82 KR</option>
+                <option value="91">🇮🇳 +91 IN</option>
+                <option value="92">🇵🇰 +92 PK</option>
+                <option value="971">🇦🇪 +971 AE</option>
+                <option value="966">🇸🇦 +966 SA</option>
+                <option value="974">🇶🇦 +974 QA</option>
+                <option value="965">🇰🇼 +965 KW</option>
+                <option value="968">🇴🇲 +968 OM</option>
+                <option value="973">🇧🇭 +973 BH</option>
+                <option value="962">🇯🇴 +962 JO</option>
+                <option value="961">🇱🇧 +961 LB</option>
+                <option value="963">🇸🇾 +963 SY</option>
+                <option value="964">🇮🇶 +964 IQ</option>
+                <option value="98">🇮🇷 +98 IR</option>
+                <option value="90">🇹🇷 +90 TR</option>
+                <option value="7">🇷🇺 +7 RU</option>
+                <option value="380">🇺🇦 +380 UA</option>
+                <option value="48">🇵🇱 +48 PL</option>
+                <option value="30">🇬🇷 +30 GR</option>
+                <option value="46">🇸🇪 +46 SE</option>
+                <option value="47">🇳🇴 +47 NO</option>
+                <option value="45">🇩🇰 +45 DK</option>
+                <option value="358">🇫🇮 +358 FI</option>
+                <option value="61">🇦🇺 +61 AU</option>
+                <option value="64">🇳🇿 +64 NZ</option>
+              </select>
+              <input class="field-input" type="tel" id="reg-wa" placeholder="Ex: 49123456" style="flex:1;">
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Votre email (optionnel)</div>
+            <input class="field-input" type="email" id="reg-email" placeholder="Ex: fatima@gmail.com">
+          </div>
+          <div class="field">
+            <div class="field-label">Votre ville *</div>
+            <select class="field-select" id="reg-city">
+              <option value="">— Choisir —</option>
+              <option>Nouakchott</option><option>Nouadhibou</option><option>Rosso</option>
+              <option>Kiffa</option><option>Kaédi</option><option>Zouerate</option>
+              <option>Atar</option><option>Tidjikja</option><option>Autre</option>
+            </select>
+          </div>
+          <button class="btn-gold-full" onclick="regGoP2()">Continuer →</button>
+        </div>
+
+        <!-- Étape 2 -->
+        <div id="reg-p2" style="display:none;flex-direction:column;gap:14px;">
+          <div class="field">
+            <div class="field-label">Nom de votre boutique *</div>
+            <input class="field-input" type="text" id="reg-shop" placeholder="Ex: Boutique Fatima">
+          </div>
+          <div class="field">
+            <div class="field-label">Que vendez-vous ? *</div>
+            <div class="cats-grid">
+              <button class="cat-btn" onclick="toggleCat(this,'melahfa')">🥻 Melahfa</button>
+              <button class="cat-btn" onclick="toggleCat(this,'tissu')">🧵 Tissus</button>
+              <button class="cat-btn" onclick="toggleCat(this,'bijoux')">💍 Bijoux</button>
+              <button class="cat-btn" onclick="toggleCat(this,'darra')">👘 Darra</button>
+              <button class="cat-btn" onclick="toggleCat(this,'mariage')">💒 Mariage</button>
+              <button class="cat-btn" onclick="toggleCat(this,'autre')">✨ Autre</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Description (optionnel)</div>
+            <textarea class="field-input" id="reg-desc" placeholder="Ex: Spécialiste Melahfa depuis 10 ans…" rows="2" style="resize:none;"></textarea>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <button onclick="regGoP1()" style="padding:13px;border-radius:13px;border:1px solid rgba(201,168,76,.25);color:var(--muted);background:none;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;">← Retour</button>
+            <button class="btn-gold-full" id="reg-submit-btn" onclick="doRegister()" style="margin:0;">Envoyer →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCÈS -->
+      <div class="reg-success" id="reg-success">
+        <div class="reg-success-icon">✓</div>
+        <h2>Demande envoyée !</h2>
+        <p>L'équipe MauriCraft vous contactera sur WhatsApp sous <strong style="color:var(--gold);">24 à 48h</strong>.</p>
+        <button class="btn-gold-full" onclick="switchTab('login')" style="margin-top:4px;">Se connecter</button>
+      </div>
+
+    </div>
+    <p class="auth-footer">En rejoignant MauriCraft, vous acceptez nos conditions.<br>Votre boutique sera visible après validation admin.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════ DASHBOARD ════════════════════════════ -->
+<div id="dashboard">
+  <div class="header">
+    <a href="/" class="header-logo">🏺 MauriCraft</a>
+    <div class="header-right">
+      <span class="vendor-name" id="header-shop-name"></span>
+      <button class="btn-logout" onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="nav-item active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📊</span> Vue d'ensemble</div>
+      <div class="nav-item" onclick="showSection('add-product')" id="nav-add-product"><span class="nav-icon">➕</span> Ajouter un produit</div>
+      <div class="nav-item" onclick="showSection('my-products')" id="nav-my-products"><span class="nav-icon">📦</span> Mes produits</div>
+      <div class="nav-item" onclick="showSection('my-shop')" id="nav-my-shop"><span class="nav-icon">🏪</span> Ma boutique</div>
+      <div class="nav-wa">
+        <a href="https://wa.me/22249662312?text=Bonjour%20MauriCraft%2C%20j%27ai%20besoin%20d%27aide%20vendeur." target="_blank">💬 Aide WhatsApp</a>
+      </div>
+    </aside>
+    <main class="main">
+
+      <!-- VUE D'ENSEMBLE -->
+      <div id="section-overview" class="section active">
+        <div class="page-title">Bienvenue <span id="vendor-firstname"></span> 👋</div>
+        <div class="page-sub">Gérez vos produits et suivez l'activité de votre boutique.</div>
+        <div class="stats-row">
+          <div class="stat-card"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Produits au total</div></div>
+          <div class="stat-card"><div class="stat-value" id="stat-approved" style="color:var(--green);">—</div><div class="stat-label">En ligne ✓</div></div>
+          <div class="stat-card"><div class="stat-value" id="stat-pending" style="color:var(--orange);">—</div><div class="stat-label">En attente</div></div>
+        </div>
+        <div class="alert alert-info" style="display:block;">💡 Après avoir ajouté un produit, l'admin MauriCraft le valide sous 24-48h avant qu'il soit visible sur le site.</div>
+        <div style="margin-top:24px;">
+          <div style="font-size:14px;font-weight:600;margin-bottom:16px;color:var(--muted);">Derniers produits ajoutés</div>
+          <div id="recent-products" class="products-list"></div>
+        </div>
+      </div>
+
+      <!-- AJOUTER UN PRODUIT -->
+      <div id="section-add-product" class="section">
+        <div class="page-title">Ajouter un produit</div>
+        <div class="page-sub">Remplissez les champs. Votre produit sera visible après validation admin.</div>
+        <div id="add-alert" class="alert"></div>
+        <div class="form-card">
+          <div class="form-grid">
+            <div class="form-group"><label>Nom du produit (Français) *</label><input type="text" id="p-name" placeholder="Ex: Melahfa Dorée Premium" maxlength="100"></div>
+            <div class="form-group"><label>اسم المنتج (العربية)</label><input type="text" id="p-name-ar" placeholder="مثال: الملحفة الذهبية" dir="rtl" maxlength="100"></div>
+            <div class="form-group"><label>Catégorie *</label>
+              <select id="p-category">
+                <option value="">— Choisir —</option>
+                <option value="melahfa">🥻 Melahfa</option>
+                <option value="tissu">🧵 Tissu &amp; Bazin</option>
+                <option value="bijoux">💍 Bijoux</option>
+                <option value="darra">👘 Darra &amp; Boubou</option>
+                <option value="mariage">💒 Mariage &amp; Cérémonie</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Prix en MRU *</label><input type="number" id="p-price" placeholder="Ex: 8500" min="0" max="999999"></div>
+            <div class="form-group"><label>Emoji</label><input type="text" id="p-emoji" placeholder="🥻" maxlength="4" style="font-size:22px;text-align:center;"></div>
+            <div class="form-group"><label>Tags (séparés par virgule)</label><input type="text" id="p-tags" placeholder="mariage, soie, broderie"></div>
+            <div class="form-group full">
+              <label>Description (Français) *</label>
+              <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
+                <span style="font-size:11px;color:rgba(201,168,76,0.7);align-self:center;margin-right:4px;">Emojis :</span>
+                <button type="button" onclick="insertEmoji('p-desc','✨')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">✨</button>
+                <button type="button" onclick="insertEmoji('p-desc','🧵')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🧵</button>
+                <button type="button" onclick="insertEmoji('p-desc','🇲🇷')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🇲🇷</button>
+                <button type="button" onclick="insertEmoji('p-desc','🛍️')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🛍️</button>
+                <button type="button" onclick="insertEmoji('p-desc','💎')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">💎</button>
+                <button type="button" onclick="insertEmoji('p-desc','🏺')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🏺</button>
+                <button type="button" onclick="insertEmoji('p-desc','👗')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">👗</button>
+                <button type="button" onclick="insertEmoji('p-desc','💍')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">💍</button>
+                <button type="button" onclick="insertEmoji('p-desc','🌟')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🌟</button>
+                <button type="button" onclick="insertEmoji('p-desc','🎁')" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:16px;">🎁</button>
+              </div>
+              <textarea id="p-desc" placeholder="Matière, taille, couleurs disponibles, fabrication…" rows="3"></textarea>
+            </div>
+            <div class="form-group full"><label>الوصف (العربية)</label><textarea id="p-desc-ar" dir="rtl" placeholder="المادة، الحجم، الألوان المتاحة..." rows="2"></textarea></div>
+            <div class="form-group"><label>Conseil de style (FR)</label><input type="text" id="p-advice-fr" placeholder="Ex: Se porte avec des bijoux en argent"></div>
+            <div class="form-group"><label>نصيحة الأزياء (AR)</label><input type="text" id="p-advice-ar" dir="rtl" placeholder="مثال: يُرتدى مع مجوهرات فضية"></div>
+            <div class="form-group full"><label>Photo du produit (JPG, PNG — max 5 Mo)</label>
+              <div class="upload-zone">
+                <input type="file" id="p-image" accept="image/jpeg,image/png,image/webp" onchange="previewImage(this)">
+                <div class="upload-icon">📸</div>
+                <div class="upload-text">Cliquez pour choisir une photo</div>
+                <img id="image-preview" class="upload-preview" alt="Aperçu">
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:24px;">
+            <button class="btn btn-outline" onclick="resetForm()">Annuler</button>
+            <button class="btn btn-gold" id="submit-btn" onclick="submitProduct()">📤 Soumettre pour validation</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MES PRODUITS -->
+      <div id="section-my-products" class="section">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;">
+          <div><div class="page-title">Mes produits</div><div class="page-sub">Tous les produits que vous avez soumis.</div></div>
+          <button class="btn btn-gold btn-sm" onclick="showSection('add-product')">➕ Ajouter</button>
+        </div>
+        <div id="my-products-alert" class="alert"></div>
+        <div id="my-products-list" class="products-list"></div>
+      </div>
+
+      <!-- MA BOUTIQUE -->
+      <div id="section-my-shop" class="section">
+        <div class="page-title">Ma boutique</div>
+        <div class="page-sub">Informations de votre boutique sur MauriCraft.</div>
+        <div class="form-card" id="shop-info"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+'use strict';
+const API = window.location.origin + '/api';
+let vendorToken   = localStorage.getItem('mc_vendor_token') || '';
+let vendorInfo    = JSON.parse(localStorage.getItem('mc_vendor_info') || 'null');
+let allMyProducts = [];
+const selectedCats = new Set();
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (vendorToken && vendorInfo) showDashboard();
+  else document.getElementById('auth-screen').style.display = 'flex';
+});
+
+/* AUTH */
+function switchTab(tab) {
+  ['login','register'].forEach(t => {
+    document.getElementById('panel-'+t).classList.remove('active');
+    document.getElementById('tab-'+t).classList.remove('active');
+  });
+  document.getElementById('reg-success').style.display = 'none';
+  document.getElementById('panel-'+tab).classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+}
+
+async function doLogin() {
+  const indicatif = document.getElementById('login-indicatif').value.replace('-CA','');
+  const num = document.getElementById('login-wa').value.trim().replace(/\D/g,'');
+  const wa  = indicatif + num;
+  const btn = document.getElementById('login-btn');
+  const alr = document.getElementById('login-alert');
+  alr.style.display = 'none';
+  if (!num || num.length < 5) return showAuthAlert(alr, 'Entrez un numéro WhatsApp valide.');
+  btn.disabled = true; btn.textContent = 'Connexion…';
+  try {
+    const res  = await fetch(API+'/vendor/login', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({whatsapp:wa})});
+    const data = await res.json();
+    if (!res.ok) { showAuthAlert(alr, data.error||'Erreur.'); btn.disabled=false; btn.textContent='Accéder à mon espace →'; return; }
+    vendorToken = data.token; vendorInfo = data.vendor;
+    localStorage.setItem('mc_vendor_token', vendorToken);
+    localStorage.setItem('mc_vendor_info', JSON.stringify(vendorInfo));
+    showDashboard();
+  } catch { showAuthAlert(alr,'Serveur inaccessible.'); btn.disabled=false; btn.textContent='Accéder à mon espace →'; }
+}
+
+function loginViaWA() { window.open('https://wa.me/22249662312?text=Bonjour%20MauriCraft%2C%20je%20voudrais%20acceder%20a%20mon%20espace%20vendeur.','_blank'); }
+
+function toggleCat(btn, cat) {
+  if (selectedCats.has(cat)) { selectedCats.delete(cat); btn.classList.remove('selected'); }
+  else { selectedCats.add(cat); btn.classList.add('selected'); }
+}
+
+function regGoP2() {
+  const name=document.getElementById('reg-name').value.trim();
+  const indicatif=document.getElementById('reg-indicatif').value.replace('-CA','');
+  const num=document.getElementById('reg-wa').value.trim().replace(/\D/g,'');
+  const wa=indicatif+num;
+  const city=document.getElementById('reg-city').value;
+  const alr=document.getElementById('reg-alert');
+  if (!name) return showAuthAlert(alr,'Votre nom est obligatoire.');
+  if (!num||num.length<5) return showAuthAlert(alr,'Numéro WhatsApp invalide.');
+  if (!city) return showAuthAlert(alr,'Choisissez votre ville.');
+  alr.style.display='none';
+  document.getElementById('reg-p1').style.display='none';
+  document.getElementById('reg-p2').style.display='flex';
+  document.getElementById('rstep2').classList.add('done');
+}
+
+function regGoP1() {
+  document.getElementById('reg-p1').style.display='flex';
+  document.getElementById('reg-p2').style.display='none';
+  document.getElementById('rstep2').classList.remove('done');
+}
+
+async function doRegister() {
+  const alr=document.getElementById('reg-alert');
+  const btn=document.getElementById('reg-submit-btn');
+  const shop=document.getElementById('reg-shop').value.trim();
+  const cats=Array.from(selectedCats);
+  if (!shop) return showAuthAlert(alr,'Nom de boutique obligatoire.');
+  if (!cats.length) return showAuthAlert(alr,'Choisissez au moins une catégorie.');
+  btn.disabled=true; btn.textContent='Envoi…';
+  const indicatif=document.getElementById('reg-indicatif').value.replace('-CA','');
+  const num=document.getElementById('reg-wa').value.trim().replace(/\D/g,'');
+  const wa=indicatif+num;
+  try {
+    const res=await fetch(API+'/vendors',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      name:document.getElementById('reg-name').value.trim(),
+      whatsapp:wa,
+      email:document.getElementById('reg-email').value.trim(),
+      city:document.getElementById('reg-city').value,
+      shopName:shop,
+      description:document.getElementById('reg-desc').value.trim(),
+      categories:cats
+    })});
+    const data=await res.json();
+    if (!res.ok) { showAuthAlert(alr,data.error||'Erreur.'); btn.disabled=false; btn.textContent='Envoyer →'; return; }
+    document.getElementById('rstep3').classList.add('done');
+    document.getElementById('panel-register').classList.remove('active');
+    document.getElementById('reg-success').style.display='flex';
+    document.getElementById('tab-register').classList.remove('active');
+    if (data.adminNotifyUrl) setTimeout(()=>window.open(data.adminNotifyUrl,'_blank'), 500);
+    if (data.vendorNotifyUrl) setTimeout(()=>window.open(data.vendorNotifyUrl,'_blank'), 1500);
+  } catch { showAuthAlert(alr,'Erreur réseau.'); btn.disabled=false; btn.textContent='Envoyer →'; }
+}
+
+function showAuthAlert(el,msg) {
+  el.className='auth-alert error'; el.textContent=msg; el.style.display='block';
+  setTimeout(()=>{el.style.display='none';},5000);
+}
+
+/* DASHBOARD */
+function showDashboard() {
+  document.getElementById('auth-screen').style.display='none';
+  document.getElementById('dashboard').style.display='flex';
+  document.getElementById('header-shop-name').textContent=vendorInfo.shopName;
+  document.getElementById('vendor-firstname').textContent=vendorInfo.name.split(' ')[0];
+  loadMyProducts(); renderShopInfo();
+}
+
+function logout() {
+  localStorage.removeItem('mc_vendor_token'); localStorage.removeItem('mc_vendor_info');
+  vendorToken=''; vendorInfo=null;
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('auth-screen').style.display='flex';
+  switchTab('login');
+}
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  if (id==='my-products') renderMyProducts();
+}
+
+async function loadMyProducts() {
+  try {
+    const res=await fetch(API+'/vendor/me/products',{headers:{'Authorization':'Bearer '+vendorToken}});
+    if (!res.ok) { if (res.status===403) logout(); return; }
+    allMyProducts=await res.json();
+    updateStats(); renderRecentProducts();
+  } catch(e){ console.warn(e.message); }
+}
+
+function updateStats() {
+  document.getElementById('stat-total').textContent=allMyProducts.length;
+  document.getElementById('stat-approved').textContent=allMyProducts.filter(p=>p.approved).length;
+  document.getElementById('stat-pending').textContent=allMyProducts.filter(p=>!p.approved).length;
+}
+
+function renderRecentProducts() {
+  const c=document.getElementById('recent-products');
+  const r=allMyProducts.slice(0,3);
+  if (!r.length) { c.innerHTML='<div class="empty-state"><div class="empty-icon">📦</div><div class="empty-title">Aucun produit pour l\'instant</div><div class="empty-text">Ajoutez votre premier produit pour commencer à vendre.</div><button class="btn btn-gold" onclick="showSection(\'add-product\')">➕ Ajouter un produit</button></div>'; return; }
+  c.innerHTML=r.map(p=>buildProductRow(p)).join('');
+}
+
+function renderMyProducts() {
+  const c=document.getElementById('my-products-list');
+  if (!allMyProducts.length) { c.innerHTML='<div class="empty-state"><div class="empty-icon">📦</div><div class="empty-title">Aucun produit</div><div class="empty-text">Commencez par ajouter votre premier produit.</div><button class="btn btn-gold" onclick="showSection(\'add-product\')">➕ Ajouter un produit</button></div>'; return; }
+  c.innerHTML=allMyProducts.map(p=>buildProductRow(p,true)).join('');
+}
+
+function buildProductRow(p, del=false) {
+  const ok=p.approved;
+  const img=p.imageUrl?`<img src="${p.imageUrl}" class="product-img-thumb" alt="" onerror="this.style.display='none'">`:`<div class="product-emoji">${p.emoji||'🏺'}</div>`;
+  const name=(p.name||'').replace(/'/g,"\\'");
+  return `<div class="product-row">${img}<div class="product-info"><div class="product-name-row">${p.name}</div><div class="product-meta">${p.price?p.price.toLocaleString()+' MRU':'—'} · ${p.category} · <span class="status-pill ${ok?'status-approved':'status-pending'}">${ok?'En ligne':'En attente'}</span></div></div>${del?`<div class="product-actions"><button class="btn btn-danger btn-sm" onclick="deleteProduct('${p._id}','${name}')">🗑️</button></div>`:''}</div>`;
+}
+
+async function deleteProduct(id,name) {
+  if (!confirm('Supprimer "'+name+'" ?')) return;
+  try {
+    const res=await fetch(API+'/vendor/me/products/'+id,{method:'DELETE',headers:{'Authorization':'Bearer '+vendorToken}});
+    const data=await res.json();
+    if (!res.ok) return alert(data.error||'Erreur.');
+    await loadMyProducts(); renderMyProducts();
+    showDashAlert('my-products-alert','✅ Produit supprimé.','success');
+  } catch { alert('Erreur réseau.'); }
+}
+
+async function submitProduct() {
+  const name=document.getElementById('p-name').value.trim();
+  const cat=document.getElementById('p-category').value;
+  const price=document.getElementById('p-price').value;
+  const desc=document.getElementById('p-desc').value.trim();
+  if (!name)          return showDashAlert('add-alert','⚠️ Le nom est obligatoire.','error');
+  if (!cat)           return showDashAlert('add-alert','⚠️ Choisissez une catégorie.','error');
+  if (!price||+price<=0) return showDashAlert('add-alert','⚠️ Le prix est obligatoire.','error');
+  if (!desc)          return showDashAlert('add-alert','⚠️ La description est obligatoire.','error');
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true; btn.textContent='⏳ Envoi en cours…';
+  document.getElementById('add-alert').style.display='none';
+  try {
+    const fd=new FormData();
+    fd.append('name',name);
+    fd.append('name_ar',document.getElementById('p-name-ar').value.trim());
+    fd.append('description',desc);
+    fd.append('desc_ar',document.getElementById('p-desc-ar').value.trim());
+    fd.append('category',cat);
+    fd.append('price',price);
+    fd.append('emoji',document.getElementById('p-emoji').value.trim()||'🏺');
+    fd.append('tags',document.getElementById('p-tags').value.trim());
+    fd.append('styleAdvice_fr',document.getElementById('p-advice-fr').value.trim());
+    fd.append('styleAdvice_ar',document.getElementById('p-advice-ar').value.trim());
+    const img=document.getElementById('p-image').files[0];
+    if (img) fd.append('image',img);
+    const res=await fetch(API+'/vendor/me/products',{method:'POST',headers:{'Authorization':'Bearer '+vendorToken},body:fd});
+    const data=await res.json();
+    if (!res.ok) { showDashAlert('add-alert',data.error||'Erreur.','error'); }
+    else { showDashAlert('add-alert','✅ Produit soumis ! Validation admin sous 24-48h.','success'); resetForm(); await loadMyProducts(); if (data.adminNotifyUrl) window.open(data.adminNotifyUrl,'_blank'); }
+  } catch { showDashAlert('add-alert','Erreur réseau.','error'); }
+  finally { btn.disabled=false; btn.textContent='📤 Soumettre pour validation'; }
+}
+
+function insertEmoji(fieldId, emoji) {
+  const el = document.getElementById(fieldId);
+  if (!el) return;
+  const start = el.selectionStart;
+  const end   = el.selectionEnd;
+  el.value = el.value.substring(0, start) + emoji + el.value.substring(end);
+  el.selectionStart = el.selectionEnd = start + emoji.length;
+  el.focus();
+}
+
+function resetForm() {
+  ['p-name','p-name-ar','p-desc','p-desc-ar','p-price','p-emoji','p-tags','p-advice-fr','p-advice-ar'].forEach(id=>{ document.getElementById(id).value=''; });
+  document.getElementById('p-category').value='';
+  document.getElementById('p-image').value='';
+  document.getElementById('image-preview').style.display='none';
+}
+
+function previewImage(input) {
+  if (input.files&&input.files[0]) { const r=new FileReader(); r.onload=e=>{const p=document.getElementById('image-preview');p.src=e.target.result;p.style.display='block';}; r.readAsDataURL(input.files[0]); }
+}
+
+function renderShopInfo() {
+  if (!vendorInfo) return;
+  document.getElementById('shop-info').innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;"><div class="form-group"><label>Nom de la boutique</label><div class="shop-field">${vendorInfo.shopName}</div></div><div class="form-group"><label>Ville</label><div class="shop-field">${vendorInfo.city||'Non précisé'}</div></div><div style="grid-column:1/-1;"><div class="alert alert-success" style="display:block;margin:0;">✅ Boutique approuvée et active sur MauriCraft</div></div><div style="grid-column:1/-1;"><a href="https://wa.me/22249662312?text=Bonjour%2C%20je%20suis%20vendeur%20MauriCraft%20et%20je%20voudrais%20modifier%20ma%20boutique." target="_blank" class="btn btn-outline" style="text-decoration:none;">💬 Modifier via WhatsApp</a></div></div>`;
+}
+
+function showDashAlert(id,msg,type) {
+  const el=document.getElementById(id);
+  el.className='alert alert-'+type; el.textContent=msg; el.style.display='block';
+  if (type==='success') setTimeout(()=>{el.style.display='none';},4000);
+}
+</script>
+</body>
+</html>
