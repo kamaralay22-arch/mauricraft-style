@@ -38,8 +38,10 @@ const allowedOrigins = [
   `http://localhost:${PORT}`,
   `http://localhost:3000`,
   `http://127.0.0.1:3000`,
-  /^http:\/\/192\.168\.\d+\.\d+/,  // réseau local WiFi (mobile)
-  /^http:\/\/10\.\d+\.\d+\.\d+/,   // réseau local alternatif
+  /^http:\/\/192\.168\.\d+\.\d+/,
+  /^http:\/\/10\.\d+\.\d+\.\d+/,
+  /^https:\/\/.*\.vercel\.app$/,  // toutes les URLs Vercel
+  'https://mauricraft-style.vercel.app',
   'https://mauricraft.mr',
   'https://www.mauricraft.mr'
 ];
