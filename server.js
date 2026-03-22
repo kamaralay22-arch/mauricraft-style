@@ -30,6 +30,9 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 const WA_NUMBER = process.env.WA_NUMBER || '22249000000';
 
+// ── Trust proxy pour Vercel/Heroku ───────────────────────────
+app.set('trust proxy', 1);
+
 // ── CORS sécurisé ─────────────────────────────────────────────
 const allowedOrigins = [
   `http://localhost:${PORT}`,
@@ -117,13 +120,21 @@ const upload = cloudinaryStorage
 let db;
 async function connectDB() {
   if (db) return db;
-  const client = new MongoClient(process.env.MONGODB_URI);
-  await client.connect();
-  console.log('✅ MongoDB Atlas connecté !');
-  db = client.db('mauricraft');
-  await db.collection('products').createIndex({ category: 1 });
-  await db.collection('products').createIndex({ name: 'text', description: 'text' });
-  return db;
+  try {
+    const client = new MongoClient(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000,
+      connectTimeoutMS: 10000,
+    });
+    await client.connect();
+    console.log('✅ MongoDB Atlas connecté !');
+    db = client.db('mauricraft');
+    await db.collection('products').createIndex({ category: 1 });
+    await db.collection('products').createIndex({ name: 'text', description: 'text' });
+    return db;
+  } catch(e) {
+    console.error('❌ MongoDB erreur:', e.message);
+    throw e;
+  }
 }
 
 // ════════════════════════════════════════════════════════════
