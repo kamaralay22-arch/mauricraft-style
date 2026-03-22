@@ -53,9 +53,12 @@ app.use(cors({
 
 if (compression) app.use(compression());
 
-// ── Dossier uploads local (fallback) ────────────────────────
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
+// ── Dossier uploads (local = uploads/, Vercel = /tmp/uploads/) ──
+const IS_VERCEL = process.env.VERCEL || process.env.NOW_REGION;
+const UPLOADS_DIR = IS_VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+} catch(e) { console.warn('⚠️ Impossible de créer uploads:', e.message); }
 
 // ── Middlewares ──────────────────────────────────────────────
 app.use(express.json());
